@@ -11,3 +11,7 @@ end)
 hl.on('hyprland.shutdown', function ()
     os.execute('systemctl --user stop hyprland-session.target && sleep 0.1')
 end)
+
+hl.on("window.fullscreen", function ()
+    hl.dsp.exec_cmd("noctalia msg bar-toggle")
+end)

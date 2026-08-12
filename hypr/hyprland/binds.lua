@@ -1,44 +1,49 @@
 local mods = {
-    main = { plain = 'SUPER', shift = 'SUPER + SHIFT' },
-    sub = { plain = 'ALT', shift = 'ALT + SHIFT' },
-    opt = { plain = 'CTRL', shift = 'CTRL + SHIFT' }
+    plain = {
+        main = "SUPER",
+        sub  = "ALT",
+        opt  = "CTRL"
+    },
+
+    strong = {
+        main = "SUPER + SHIFT",
+        sub  = "ALT + SHIFT",
+        opt  = "CTRL + SHIFT"
+    }
 }
 
---- Support variables
--- local utils = require('hyprland.utils')
+local ipc = "noctalia msg "
+local utils = require("hyprland.utils")
 
---- Essentials
-hl.bind(mods.main.plain .. ' + RETURN', hl.dsp.exec_cmd('kitty'))
-hl.bind(mods.main.plain .. ' + W', hl.dsp.exec_cmd('zen-browser'))
-
-hl.bind(mods.main.plain .. ' + F', hl.dsp.exec_cmd('thunar'))
-hl.bind(mods.main.plain .. ' + A', hl.dsp.exec_cmd('hyprlauncher'))
-
---- Apps
-hl.bind(mods.main.plain .. ' + S', function()
-    utils.focus_window_or_execute('title:Spotify .*', 'spotify')
+--- Basic
+-- Noctalia independent
+hl.bind(mods.plain.main .. " + RETURN", hl.dsp.exec_cmd("kitty"))
+hl.bind(mods.plain.main .. " + W", function()
+    utils.exec_unique_by_class("class:zen", "zen-browser")
 end)
 
-hl.bind(mods.main.plain .. ' + P', hl.dsp.exec_cmd('zathura'))
-hl.bind(mods.main.plain .. ' + I', function()
-    utils.focus_window_or_execute('title:btop', 'kitty -T btop -e btop')
+hl.bind(mods.plain.main .. " + F", function()
+    utils.exec_unique_by_class("class:thunar", "thunar")
 end)
 
-hl.bind(mods.main.plain .. ' + T', function()
-    local cmd = string.format('kitty -T todos -e "nvim" %s', Paths.todo_file)
-    utils.focus_window_or_execute('title:todos', cmd)
+hl.bind(mods.plain.main .. " + M", function()
+    utils.exec_unique_by_title("title:Spotify", "spotify")
 end)
 
-hl.bind(mods.main.plain .. ' + L', function()
-    utils.focus_window_or_execute('title:LocalSend', 'localsend')
+hl.bind(mods.plain.main .. " + P", hl.dsp.exec_cmd("zathura"))
+
+hl.bind(mods.plain.main .. ' + L', function()
+    utils.exec_unique_by_title('title:LocalSend', 'localsend')
 end)
 
-hl.bind('PRINT', hl.dsp.exec_cmd('hyprshot -m region -o ' .. Paths.shots_dir))
+-- Noctalia dependent
+hl.bind(mods.plain.main .. " + A", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
+hl.bind('PRINT', hl.dsp.exec_cmd(ipc .. "screenshot-region"))
 
 --- Window control
-hl.bind(mods.main.plain .. ' + Q', hl.dsp.window.close())
-hl.bind(mods.main.plain .. ' + K', hl.dsp.window.kill())
-hl.bind(mods.sub.plain .. ' + T', function()
+hl.bind(mods.plain.main .. ' + Q', hl.dsp.window.close())
+hl.bind(mods.plain.main .. ' + K', hl.dsp.window.kill())
+hl.bind(mods.plain.sub .. ' + T', function()
     local win = hl.get_active_window()
     if not win then
         return
@@ -62,15 +67,13 @@ hl.bind(mods.sub.plain .. ' + T', function()
     hl.dispatch(hl.dsp.window.center())
 end)
 
-hl.bind(mods.sub.plain .. ' + F', function()
+hl.bind(mods.plain.sub .. ' + F', function()
     local win = hl.get_active_window()
     if not win then
         return
     end
 
     local blacklist = {
-        'todos',
-        'btop',
         'LocalSend'
     }
 
@@ -83,7 +86,7 @@ hl.bind(mods.sub.plain .. ' + F', function()
     hl.dispatch(hl.dsp.window.fullscreen())
 end)
 
-hl.bind(mods.sub.plain .. ' + L', function()
+hl.bind(mods.plain.sub .. ' + L', function()
     local layout = hl.get_config('general.layout')
     if layout ~= 'dwindle' then
         hl.config({
@@ -97,55 +100,53 @@ hl.bind(mods.sub.plain .. ' + L', function()
     })
 end)
 
-
 --- Window navigation
-hl.bind(mods.main.plain .. ' + H', hl.dsp.focus({ direction = 'l' }), { repeating = true })
-hl.bind(mods.main.plain .. ' + J', hl.dsp.focus({ direction = 'd' }), { repeating = true })
-hl.bind(mods.main.plain .. ' + K', hl.dsp.focus({ direction = 'u' }), { repeating = true })
-hl.bind(mods.main.plain .. ' + L', hl.dsp.focus({ direction = 'r' }), { repeating = true })
-hl.bind(mods.sub.plain .. ' + TAB', hl.dsp.window.cycle_next(), { repeating = true })
-hl.bind(mods.sub.shift .. ' + TAB', hl.dsp.window.cycle_next({ next = false }), { repeating = true })
-
+hl.bind(mods.plain.main .. ' + H', hl.dsp.focus({ direction = 'l' }), { repeating = true })
+hl.bind(mods.plain.main .. ' + J', hl.dsp.focus({ direction = 'd' }), { repeating = true })
+hl.bind(mods.plain.main .. ' + K', hl.dsp.focus({ direction = 'u' }), { repeating = true })
+hl.bind(mods.plain.main .. ' + L', hl.dsp.focus({ direction = 'r' }), { repeating = true })
+hl.bind(mods.plain.sub .. ' + TAB', hl.dsp.window.cycle_next(), { repeating = true })
+hl.bind(mods.strong.sub .. ' + TAB', hl.dsp.window.cycle_next({ next = false }), { repeating = true })
 
 --- Move window to workspace
-hl.bind(mods.main.shift .. ' + 1', hl.dsp.window.move({ workspace = 1, follow = false }))
-hl.bind(mods.main.shift .. ' + 2', hl.dsp.window.move({ workspace = 2, follow = false }))
-hl.bind(mods.main.shift .. ' + 3', hl.dsp.window.move({ workspace = 3, follow = false }))
-hl.bind(mods.main.shift .. ' + 4', hl.dsp.window.move({ workspace = 4, follow = false }))
-hl.bind(mods.main.shift .. ' + 5', hl.dsp.window.move({ workspace = 5, follow = false }))
-hl.bind(mods.main.shift .. ' + 6', hl.dsp.window.move({ workspace = 6, follow = false }))
-hl.bind(mods.main.shift .. ' + 7', hl.dsp.window.move({ workspace = 7, follow = false }))
-hl.bind(mods.main.shift .. ' + 8', hl.dsp.window.move({ workspace = 8, follow = false }))
-hl.bind(mods.main.shift .. ' + 9', hl.dsp.window.move({ workspace = 9, follow = false }))
-hl.bind(mods.main.shift .. ' + 0', hl.dsp.window.move({ workspace = 10, follow = false }))
+hl.bind(mods.strong.main .. ' + 1', hl.dsp.window.move({ workspace = 1, follow = false }))
+hl.bind(mods.strong.main .. ' + 2', hl.dsp.window.move({ workspace = 2, follow = false }))
+hl.bind(mods.strong.main .. ' + 3', hl.dsp.window.move({ workspace = 3, follow = false }))
+hl.bind(mods.strong.main .. ' + 4', hl.dsp.window.move({ workspace = 4, follow = false }))
+hl.bind(mods.strong.main .. ' + 5', hl.dsp.window.move({ workspace = 5, follow = false }))
+hl.bind(mods.strong.main .. ' + 6', hl.dsp.window.move({ workspace = 6, follow = false }))
+hl.bind(mods.strong.main .. ' + 7', hl.dsp.window.move({ workspace = 7, follow = false }))
+hl.bind(mods.strong.main .. ' + 8', hl.dsp.window.move({ workspace = 8, follow = false }))
+hl.bind(mods.strong.main .. ' + 9', hl.dsp.window.move({ workspace = 9, follow = false }))
+hl.bind(mods.strong.main .. ' + 0', hl.dsp.window.move({ workspace = 10, follow = false }))
 
 --- Focus workspace
-hl.bind(mods.main.plain .. ' + 1', hl.dsp.focus({ workspace = 1 }))
-hl.bind(mods.main.plain .. ' + 2', hl.dsp.focus({ workspace = 2 }))
-hl.bind(mods.main.plain .. ' + 3', hl.dsp.focus({ workspace = 3 }))
-hl.bind(mods.main.plain .. ' + 4', hl.dsp.focus({ workspace = 4 }))
-hl.bind(mods.main.plain .. ' + 5', hl.dsp.focus({ workspace = 5 }))
-hl.bind(mods.main.plain .. ' + 6', hl.dsp.focus({ workspace = 6 }))
-hl.bind(mods.main.plain .. ' + 7', hl.dsp.focus({ workspace = 7 }))
-hl.bind(mods.main.plain .. ' + 8', hl.dsp.focus({ workspace = 8 }))
-hl.bind(mods.main.plain .. ' + 9', hl.dsp.focus({ workspace = 9 }))
-hl.bind(mods.main.plain .. ' + 0', hl.dsp.focus({ workspace = 10 }))
+hl.bind(mods.plain.main .. ' + 1', hl.dsp.focus({ workspace = 1 }))
+hl.bind(mods.plain.main .. ' + 2', hl.dsp.focus({ workspace = 2 }))
+hl.bind(mods.plain.main .. ' + 3', hl.dsp.focus({ workspace = 3 }))
+hl.bind(mods.plain.main .. ' + 4', hl.dsp.focus({ workspace = 4 }))
+hl.bind(mods.plain.main .. ' + 5', hl.dsp.focus({ workspace = 5 }))
+hl.bind(mods.plain.main .. ' + 6', hl.dsp.focus({ workspace = 6 }))
+hl.bind(mods.plain.main .. ' + 7', hl.dsp.focus({ workspace = 7 }))
+hl.bind(mods.plain.main .. ' + 8', hl.dsp.focus({ workspace = 8 }))
+hl.bind(mods.plain.main .. ' + 9', hl.dsp.focus({ workspace = 9 }))
+hl.bind(mods.plain.main .. ' + 0', hl.dsp.focus({ workspace = 10 }))
 
 hl.bind(
-    mods.main.plain .. ' + TAB',
+    mods.plain.main .. ' + TAB',
     hl.dsp.focus({ workspace = 'e+1' }),
     { repeating = true }
 )
 
 hl.bind(
-    mods.main.shift .. ' + TAB',
+    mods.strong.main .. ' + TAB',
     hl.dsp.focus({ workspace = 'e-1' }),
     { repeating = true }
 )
 
 --- Submaps
 hl.bind(
-    mods.opt.plain .. ' + R',
+    mods.plain.opt .. ' + R',
     hl.dsp.submap('resize')
 )
 
@@ -163,7 +164,7 @@ hl.define_submap(
 )
 
 hl.bind(
-    mods.opt.plain .. ' + S',
+    mods.plain.opt .. ' + S',
     hl.dsp.submap('swap')
 )
 
@@ -181,93 +182,14 @@ hl.define_submap(
 )
 
 --- Volume, player and backlight
--- hl.bind(
---     'XF86AudioRaiseVolume',
---     function()
---         local handle = io.popen('wpctl get-volume @DEFAULT_AUDIO_SINK@')
---         if not handle then
---             return
---         end
---
---         local output = handle:read('*l')
---         local volume = tonumber(output:match('Volume:%s*([%d.]+)'))
---         if volume and volume < 1.0 then
---             hl.dispatch(hl.dsp.exec_cmd(('wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+')))
---         end
---     end,
---     { locked = true, repeating = true }
--- )
---
--- hl.bind(
---     'XF86AudioLowerVolume',
---     hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'),
---     { locked = true, repeating = true }
--- )
---
--- hl.bind(
---     'XF86AudioMute',
---     hl.dsp.exec_cmd('wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'),
---     { locked = true }
--- )
---
--- hl.bind(
---     'XF86AudioMicMute',
---     hl.dsp.exec_cmd('wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle'),
---     { locked = true }
--- )
---
--- hl.bind(
---     'XF86AudioPlay',
---     hl.dsp.exec_cmd('playerctl play-pause'),
---     { locked = true }
--- )
---
--- hl.bind(
---     'XF86AudioStop',
---     hl.dsp.exec_cmd('playerctl play-pause'),
---     { locked = true }
--- )
--- hl.bind(
---     'XF86AudioNext',
---     hl.dsp.exec_cmd('playerctl next'),
---     { locked = true }
--- )
---
--- hl.bind(
---     'XF86AudioPrev',
---     hl.dsp.exec_cmd('playerctl previous'),
---     { locked = true }
--- )
---
--- hl.bind(
---     'XF86MonBrightnessUp',
---     hl.dsp.exec_cmd('brightnessctl set 10%+'),
---     { locked = true, repeating = true }
--- )
---
--- hl.bind(
---     'XF86MonBrightnessDown',
---     hl.dsp.exec_cmd('brightnessctl set 10%-'),
---     { locked = true, repeating = true }
--- )
---
-local ipc = "noctalia msg "
+hl.bind('XF86AudioRaiseVolume', hl.dsp.exec_cmd(ipc .. "volume-up"))
+hl.bind('XF86AudioLowerVolume', hl.dsp.exec_cmd(ipc .. "volume-down"))
+hl.bind('XF86AudioMute', hl.dsp.exec_cmd(ipc .. "volume-mute"))
+hl.bind('XF86AudioMicMute', hl.dsp.exec_cmd(ipc .. "mic-mute"))
+hl.bind('XF86AudioPlay', hl.dsp.exec_cmd(ipc .. "media toggle"))
+hl.bind('XF86AudioStop', hl.dsp.exec_cmd(ipc .. "media stop"))
+hl.bind('XF86AudioNext', hl.dsp.exec_cmd(ipc .. "media next"))
+hl.bind('XF86AudioPrev', hl.dsp.exec_cmd(ipc .. "media previous"))
 
-hl.bind(mods.main.plain .. "+ Space", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
-hl.bind(mods.main.plain .. "+ C", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center"))
-hl.bind(mods.main.plain .. "+ Comma", hl.dsp.exec_cmd(ipc .. "settings-toggle"))
-hl.bind("ALT + Tab", hl.dsp.exec_cmd(ipc .. "window-switcher"))
-
--- Media keys
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. "volume-up"))
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(ipc .. "volume-down"))
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd(ipc .. "volume-mute"))
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(ipc .. "brightness-up"))
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. "brightness-down"))
-
--- Noctalia Settings
-hl.window_rule({
-    match = { class = "dev.noctalia.Noctalia" },
-    float = true,
-    size = { 1080, 920 },
-})
+hl.bind('XF86MonBrightnessUp', hl.dsp.exec_cmd(ipc .. "brightness-up"))
+hl.bind('XF86MonBrightnessDown', hl.dsp.exec_cmd(ipc .. "brightness-down"))
