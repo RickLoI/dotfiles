@@ -1,0 +1,19 @@
+# Main config file for zathura
+include "./noctaliarc"
+
+set font                        "Lilex Nerd Font Mono 12"
+set guioptions                  "hv"
+set adjust-open                 "width"
+set database                    "null"
+
+set recolor                     false 
+set render-loading              false 
+
+set selection-clipboard         "clipboard"
+
+set recolor-keephue             true
+set recolor-adjust-lightness    true
+
+# Mappings 
+map <A-c> recolor
+unmap <C-r> 

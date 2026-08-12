@@ -1,0 +1,5 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export SSH_AGENT_PID:6547
+SETUVAR --export SSH_AUTH_SOCK:/home/zetsubo/\x2ekeychain/NR3i4FQC\x2es
+SETUVAR fish_greeting:\x1d

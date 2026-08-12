@@ -1,0 +1,6 @@
+require('config.plugins.lsp')
+require('config.plugins.no-conf')
+require('config.plugins.noice')
+require('config.plugins.telescope')
+require('config.plugins.treesitter')
+require('config.plugins.completion')
