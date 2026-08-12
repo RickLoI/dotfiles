@@ -27,7 +27,7 @@ order = [ "Main" ]
     capsule_opacity = 1.0
     capsule_padding = 6.0
     capsule_thickness = 0.64999997615814209
-    center = [ "date", "Spacer-1", "clock", "Spacer-1", "weather" ]
+    center = [ "weather", "Spacer-1", "clock" ]
     concave_edge_corners = true
     contact_shadow = false
     enabled = true
@@ -248,8 +248,8 @@ validate = [ "Return", "KP_Enter", "space" ]
 address = ""
 auto_locate = true
 custom_schedule = false
-sunrise = ""
-sunset = ""
+sunrise = "07:30"
+sunset = "19:30"
 
 [lockscreen]
 allow_empty_password = false
@@ -578,11 +578,11 @@ swap_pct_critical_threshold = 80.0
 [theme]
 builtin = "Noctalia"
 community_palette = "Rose Pine Moon"
-custom_palette = ""
+custom_palette = "paper-airplane-v1-rb"
 mode = "dark"
 pure_black_dark = false
 source = "community"
-wallpaper_scheme = "m3-rainbow"
+wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "gtk3", "gtk4", "hyprland", "kitty", "qt" ]
@@ -619,6 +619,10 @@ unit = "metric"
 length = 15
 type = "spacer"
 
+[widget.Spacer-2]
+length = 30
+type = "spacer"
+
 [widget.active_window]
 icon_size = 14.0
 max_length = 260.0
@@ -635,7 +639,12 @@ type = "battery"
 hide_when_no_connected_device = true
 type = "bluetooth"
 
+[widget.clock]
+format = "{:%I:%M %p}"
+type = "clock"
+
 [widget.cpu]
+anchor = true
 stat = "cpu_usage"
 type = "sysmon"
 
