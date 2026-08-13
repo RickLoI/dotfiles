@@ -61,32 +61,33 @@ autocmd({ 'ColorScheme', 'BufEnter' }, {
     end
 })
 
+--- NOTE: most likely will remove
 --- Filter colorscheme per filetype
-autocmd('BufEnter', {
-    group = UtsuroNoArashis,
-    callback = function(e)
-        local buff = e.buf
-        local ft = vim.bo[buff].filetype
-        local colorscheme_set = 'rose-pine'
-
-        --- Update when some are found
-        local lookup = {
-            ['catppuccin']       = {},
-            ['rose-pine-moon']   = {},
-            ['tokyonight-storm'] = {}
-        }
-
-
-        for colorscheme, langs in pairs(lookup) do
-            if vim.tbl_contains(langs, ft) then
-                colorscheme_set = colorscheme
-            end
-        end
-
-        vim.cmd.colorscheme(colorscheme_set)
-        require('lualine').setup({})
-    end
-})
+-- autocmd('BufEnter', {
+--     group = UtsuroNoArashis,
+--     callback = function(e)
+--         local buff = e.buf
+--         local ft = vim.bo[buff].filetype
+--         local colorscheme_set = 'haligan'
+--
+--         --- Update when some are found
+--         local lookup = {
+--             ['catppuccin']       = {},
+--             ['rose-pine-moon']   = {},
+--             ['tokyonight-storm'] = {}
+--         }
+--
+--
+--         for colorscheme, langs in pairs(lookup) do
+--             if vim.tbl_contains(langs, ft) then
+--                 colorscheme_set = colorscheme
+--             end
+--         end
+--
+--         vim.cmd.colorscheme(colorscheme_set)
+--         require('lualine').setup({})
+--     end
+-- })
 
 --- When in a (La)TeX file:
 --- 1. Enable a couple of mappings (compilation and docs)

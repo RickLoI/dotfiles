@@ -1,58 +1,51 @@
 --- Window
+-- Named
 hl.window_rule({
-    match = {
-        class = 'negative:(localsend|wofi)|(blueman|qalculate|xdg-desktop)(.*)',
-        title = 'negative:(btop|todos)',
-    },
-    workspace = 10,
+    name = "Move everything to last workspace",
+    match = { class = ".*" },
+    workspace = 10
+})
+
+-- Unnamed
+hl.window_rule({
+    match = { class = "kitty" },
+    workspace = 1
 })
 
 hl.window_rule({
-    match = { class = '(kitty)' },
-    workspace = 1,
+    match = { class = "zen" },
+    workspace = 2
 })
 
 hl.window_rule({
-    match = { class = '(firefox|zen)' },
-    workspace = 2,
+    match = { class = "((.*)printer)|(print|thunar)" },
+    workspace = 3
 })
 
 hl.window_rule({
-    match = { class = '(.*)(printer)|(nemo|print|thunar)' },
-    workspace = 3,
-})
-
-hl.window_rule({
-    match = { class = '(.*)(zathura)|(imv|mpv|Spotify)' },
+    match = { class = "((.*)zathura)|(imv|mpv|Spotify)" },
     workspace = 4,
 })
 
 hl.window_rule({
-    match = { class = '(steam)' },
+    match = { class = "steam" },
     workspace = 5,
 })
 
 hl.window_rule({
-    match = { class = '(gimp)|(file-)(.*)' },
+    match = { class = 'gimp|(file-(.*))' },
     workspace = 6,
 })
 
 hl.window_rule({
-    match = { class = 'negative:(Ares)', float = true },
+    match = { float = true },
     center = true,
-    size = '(monitor_w*0.5) (monitor_h*0.5)'
-})
-
-hl.window_rule({
-    match  = { class = '(kitty)', title = '(btop|todos)' },
-    float  = true,
-    center = true,
-    size   = '(monitor_w*0.75) (monitor_h*0.75)',
+    size = '(monitor_w*0.75) (monitor_h*0.75)'
 })
 
 hl.window_rule({
     match  = {
-        class         = '(gimp)|(file-)(.*)',
+        class         = 'gimp|(file-(.*))',
         initial_title = 'negative:(GIMP|GNU|Welcome)(.*)',
     },
     float  = true,
@@ -62,7 +55,7 @@ hl.window_rule({
 
 hl.window_rule({
     match  = {
-        class = '(thunar)',
+        class = 'thunar',
         title = 'negative:((.*) - Thunar)|(Thunar Preferences)',
     },
     float  = true,
@@ -72,7 +65,7 @@ hl.window_rule({
 
 hl.window_rule({
     match = {
-        class = '(thunar)',
+        class = 'thunar',
         title = 'Rename .*'
     },
     float = true,
@@ -81,7 +74,7 @@ hl.window_rule({
 })
 
 hl.window_rule({
-    match  = { class = '(.*)(printer)|(print|localsend)|(blueman|qalculate)(.*)' },
+    match  = { class = '((.*)printer)|(print|localsend)|(blueman|qalculate)(.*)' },
     float  = true,
     center = true,
     size   = '(monitor_w*0.5) (monitor_h*0.5)',
@@ -89,9 +82,9 @@ hl.window_rule({
 
 hl.window_rule({
     match  = {
-        class         = '(firefox|zen)',
+        class         = 'zen',
         title         = '(.*)',
-        initial_title = 'negative:((.*)(— ))?(Mozilla Firefox|Zen Browser)',
+        initial_title = 'negative:((.*)(— ))?(Zen Browser)',
     },
     float  = true,
     center = true,
@@ -100,7 +93,7 @@ hl.window_rule({
 
 hl.window_rule({
     match  = {
-        class = '(steam)',
+        class = 'steam',
         title = '(Sign|Friends)(.*)'
     },
     float  = true,
@@ -125,7 +118,7 @@ hl.workspace_rule({ workspace = "3", persistent = true, default_name = "chat" })
 hl.workspace_rule({ workspace = "4", persistent = true, default_name = "game" })
 hl.workspace_rule({ workspace = "5", persistent = true, default_name = "design" })
 
---- Layer 
+--- Layer
 hl.layer_rule({
   name = "noctalia",
   match = {

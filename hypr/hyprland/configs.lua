@@ -3,18 +3,12 @@ hl.config({
     general = {
         gaps_in = 5,
         gaps_out = 10,
+        border_size = 4,
+        resize_on_border = true
     },
 
     decoration = {
         rounding = 20,
-        rounding_power = 2,
-
-        shadow = {
-            enabled = true,
-            range = 4,
-            render_power = 3,
-            color = "#ee1a1a1a",
-        },
 
         blur = {
             enabled = true,
@@ -38,7 +32,6 @@ hl.config({
         disable_hyprland_logo    = true,
         disable_splash_rendering = true,
         font_family              = 'Lilex Nerd Font',
-        background_color         = '#181b29',
         enable_anr_dialog        = false
     },
 

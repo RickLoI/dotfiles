@@ -10,5 +10,5 @@ hl.env('GDK_SCALE', 1)
 hl.env('GTK_USE_PORTAL', 1)
 
 hl.env('QT_QPA_PLATFORM', 'wayland')
--- hl.env('QT_QPA_PLATFORMTHEME', 'hyprqt6engine')
+hl.env('QT_QPA_PLATFORMTHEME', 'hyprqt6engine')
 
