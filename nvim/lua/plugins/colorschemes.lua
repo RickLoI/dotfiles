@@ -13,7 +13,8 @@ return {
         config = function()
             require('haligan').setup({
                 groups = {
-                    Normal = { fg = 'text', bg = 'NONE' }
+                    Normal = { fg = 'text', bg = 'NONE' },
+                    NormalNC = { fg = 'text', bg = 'NONE'}
                 }
             })
             vim.cmd('colorscheme haligan')
