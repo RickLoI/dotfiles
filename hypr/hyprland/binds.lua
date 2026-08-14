@@ -42,7 +42,7 @@ hl.bind(
 hl.bind(
     mods.plain.main .. " + M",
     function()
-        utils.exec_unique_by_title("title:Spotify", "spotify")
+        utils.exec_unique_by_class("class:Spotify", "spotify")
     end,
     { description = "Open or focus the default music player." }
 )
@@ -54,9 +54,9 @@ hl.bind(
 )
 
 hl.bind(
-    mods.plain.main .. ' + L',
+    mods.plain.main .. " + L",
     function()
-        utils.exec_unique_by_title('title:LocalSend', 'localsend')
+        utils.exec_unique_by_title("title:LocalSend", "localsend")
     end,
     { description = "Open or focus localsend." }
 )
@@ -69,7 +69,7 @@ hl.bind(
 )
 
 hl.bind(
-    'PRINT',
+    "PRINT",
     hl.dsp.exec_cmd(ipc .. "screenshot-region"),
     { description = "(Noctalia) Select region to screenshot." }
 )
@@ -100,19 +100,19 @@ hl.bind(
 
 --- Window control
 hl.bind(
-    mods.plain.main .. ' + Q',
+    mods.plain.main .. " + Q",
     hl.dsp.window.close(),
     { description = "Close the active window." }
 )
 
 hl.bind(
-    mods.plain.main .. ' + K',
+    mods.plain.main .. " + K",
     hl.dsp.window.kill(),
     { description = "Forcebly close the active window." }
 )
 
 hl.bind(
-    mods.plain.sub .. ' + T',
+    mods.plain.sub .. " + T",
     function()
         local win = hl.get_active_window()
         if not win then
@@ -140,7 +140,7 @@ hl.bind(
 )
 
 hl.bind(
-    mods.plain.sub .. ' + F',
+    mods.plain.sub .. " + F",
     function()
         local win = hl.get_active_window()
         if not win then
@@ -148,7 +148,7 @@ hl.bind(
         end
 
         local blacklist = {
-            'LocalSend'
+            "LocalSend"
         }
 
         for _, blacklisted in ipairs(blacklist) do
@@ -163,287 +163,287 @@ hl.bind(
 )
 
 hl.bind(
-    mods.plain.sub .. ' + L',
+    mods.plain.sub .. " + L",
     function()
-        local layout = hl.get_config('general.layout')
-        if layout ~= 'dwindle' then
+        local layout = hl.get_config("general.layout")
+        if layout ~= "dwindle" then
             hl.config({
-                general = { layout = 'dwindle' }
+                general = { layout = "dwindle" }
             })
             return
         end
 
         hl.config({
-            general = { layout = 'scrolling' }
+            general = { layout = "scrolling" }
         })
     end,
     { description = "Change active layout between dwindle and scrolling." }
 )
 
 hl.bind(
-    mods.plain.sub .. ' + W',
-    hl.dsp.exec_cmd(ipc .. 'panel-toggle wallpaper'),
+    mods.plain.sub .. " + W",
+    hl.dsp.exec_cmd(ipc .. "panel-toggle wallpaper"),
     { description = "(Noctalia) Toggle wallpaper panel." }
 )
 
 hl.bind(
-    mods.plain.sub .. ' + S',
-    hl.dsp.exec_cmd(ipc .. 'settings-toggle'),
+    mods.plain.sub .. " + S",
+    hl.dsp.exec_cmd(ipc .. "settings-toggle"),
     { description = "(Noctalia) Toggle Noctalia settings." }
 )
 
 --- Window navigation
 hl.bind(
-    mods.plain.main .. ' + H',
-    hl.dsp.focus({ direction = 'l' }),
+    mods.plain.main .. " + H",
+    hl.dsp.focus({ direction = "l" }),
     { repeating = true, description = "Focus the window on the left of the active one, if any." }
 )
 
 hl.bind(
-    mods.plain.main .. ' + J',
-    hl.dsp.focus({ direction = 'd' }),
+    mods.plain.main .. " + J",
+    hl.dsp.focus({ direction = "d" }),
     { repeating = true, description = "Focus the window below the active one, if any." }
 )
 
 hl.bind(
-    mods.plain.main .. ' + K',
-    hl.dsp.focus({ direction = 'u' }),
+    mods.plain.main .. " + K",
+    hl.dsp.focus({ direction = "u" }),
     { repeating = true, description = "Focus the window above the active one, if any." }
 )
 
 hl.bind(
-    mods.plain.main .. ' + L',
-    hl.dsp.focus({ direction = 'r' }),
+    mods.plain.main .. " + L",
+    hl.dsp.focus({ direction = "r" }),
     { repeating = true, description = "Focus the window on the right of the active one, if any." }
 )
 
 hl.bind(
-    mods.plain.sub .. ' + TAB',
+    mods.plain.sub .. " + TAB",
     hl.dsp.window.cycle_next(),
     { repeating = true, description = "Select the next available window in the workspace." }
 )
 
 hl.bind(
-    mods.strong.sub .. ' + TAB',
+    mods.strong.sub .. " + TAB",
     hl.dsp.window.cycle_next({ next = false }),
     { repeating = true, description = "Select the previous available window in the workspace." }
 )
 
 --- Move window to workspace
 hl.bind(
-    mods.strong.main .. ' + 1',
+    mods.strong.main .. " + 1",
     hl.dsp.window.move({ workspace = 1, follow = false }),
     { description = "Move the active window to workspace 1." }
 )
 
 hl.bind(
-    mods.strong.main .. ' + 2',
+    mods.strong.main .. " + 2",
     hl.dsp.window.move({ workspace = 2, follow = false }),
     { description = "Move the active window to workspace 2." }
 )
 
 hl.bind(
-    mods.strong.main .. ' + 3',
+    mods.strong.main .. " + 3",
     hl.dsp.window.move({ workspace = 3, follow = false }),
     { description = "Move the active window to workspace 3." }
 )
 
 hl.bind(
-    mods.strong.main .. ' + 4',
+    mods.strong.main .. " + 4",
     hl.dsp.window.move({ workspace = 4, follow = false }),
     { description = "Move the active window to workspace 4." }
 )
 
 hl.bind(
-    mods.strong.main .. ' + 5',
+    mods.strong.main .. " + 5",
     hl.dsp.window.move({ workspace = 5, follow = false }),
     { description = "Move the active window to workspace 5." }
 )
 
 hl.bind(
-    mods.strong.main .. ' + 6',
+    mods.strong.main .. " + 6",
     hl.dsp.window.move({ workspace = 6, follow = false }),
     { description = "Move the active window to workspace 6." }
 )
 
 hl.bind(
-    mods.strong.main .. ' + 7',
+    mods.strong.main .. " + 7",
     hl.dsp.window.move({ workspace = 7, follow = false }),
     { description = "Move the active window to workspace 7." }
 )
 
 hl.bind(
-    mods.strong.main .. ' + 8',
+    mods.strong.main .. " + 8",
     hl.dsp.window.move({ workspace = 8, follow = false }),
     { description = "Move the active window to workspace 8." }
 )
 
 hl.bind(
-    mods.strong.main .. ' + 9',
+    mods.strong.main .. " + 9",
     hl.dsp.window.move({ workspace = 9, follow = false }),
     { description = "Move the active window to workspace 9." }
 )
 
 hl.bind(
-    mods.strong.main .. ' + 0',
+    mods.strong.main .. " + 0",
     hl.dsp.window.move({ workspace = 10, follow = false }),
     { description = "Move the active window to workspace 10." }
 )
 
 --- Focus workspace
 hl.bind(
-    mods.plain.main .. ' + 1',
+    mods.plain.main .. " + 1",
     hl.dsp.focus({ workspace = 1 }),
     { description = "Switch focus to workspace 1." }
 )
 
 hl.bind(
-    mods.plain.main .. ' + 2',
+    mods.plain.main .. " + 2",
     hl.dsp.focus({ workspace = 2 }),
     { description = "Switch focus to workspace 2." }
 )
 
 hl.bind(
-    mods.plain.main .. ' + 3',
+    mods.plain.main .. " + 3",
     hl.dsp.focus({ workspace = 3 }),
     { description = "Switch focus to workspace 3." }
 )
 
 hl.bind(
-    mods.plain.main .. ' + 4',
+    mods.plain.main .. " + 4",
     hl.dsp.focus({ workspace = 4 }),
     { description = "Switch focus to workspace 4." }
 )
 
 hl.bind(
-    mods.plain.main .. ' + 5',
+    mods.plain.main .. " + 5",
     hl.dsp.focus({ workspace = 5 }),
     { description = "Switch focus to workspace 5." }
 )
 
 hl.bind(
-    mods.plain.main .. ' + 6',
+    mods.plain.main .. " + 6",
     hl.dsp.focus({ workspace = 6 }),
     { description = "Switch focus to workspace 6." }
 )
 
 hl.bind(
-    mods.plain.main .. ' + 7',
+    mods.plain.main .. " + 7",
     hl.dsp.focus({ workspace = 7 }),
     { description = "Switch focus to workspace 7." }
 )
 
 hl.bind(
-    mods.plain.main .. ' + 8',
+    mods.plain.main .. " + 8",
     hl.dsp.focus({ workspace = 8 }),
     { description = "Switch focus to workspace 8." }
 )
 
 hl.bind(
-    mods.plain.main .. ' + 9',
+    mods.plain.main .. " + 9",
     hl.dsp.focus({ workspace = 9 }),
     { description = "Switch focus to workspace 9." }
 )
 
 hl.bind(
-    mods.plain.main .. ' + 0',
+    mods.plain.main .. " + 0",
     hl.dsp.focus({ workspace = 10 }),
     { description = "Switch focus to workspace 10." }
 
 )
 
 hl.bind(
-    mods.plain.main .. ' + TAB',
-    hl.dsp.focus({ workspace = 'e+1' }),
+    mods.plain.main .. " + TAB",
+    hl.dsp.focus({ workspace = "e+1" }),
     { repeating = true, description = "Switch focus to the next workspace." }
 )
 
 hl.bind(
-    mods.strong.main .. ' + TAB',
-    hl.dsp.focus({ workspace = 'e-1' }),
+    mods.strong.main .. " + TAB",
+    hl.dsp.focus({ workspace = "e-1" }),
     { repeating = true, description = "Switch focus to the previous workspace." }
 )
 
 --- Submaps
 hl.bind(
-    mods.plain.opt .. ' + R',
-    hl.dsp.submap('resize'),
+    mods.plain.opt .. " + R",
+    hl.dsp.submap("resize"),
     { description = "Enter the resize submap." }
 )
 
 hl.define_submap(
-    'resize',
+    "resize",
     function()
         local resize = hl.dsp.window.resize
         hl.bind(
-            'H',
+            "H",
             resize({ x = -10, y = 0, relative = true }),
-            { repeating = true, description = "(Submap) Shrink the active window's width." }
+            { repeating = true, description = "(Submap) Shrink the active windows width." }
         )
 
         hl.bind(
-            'J',
+            "J",
             resize({ x = 0, y = -10, relative = true }),
-            { repeating = true, description = "(Submap) Shrink the active window's height." }
+            { repeating = true, description = "(Submap) Shrink the active windows height." }
         )
 
         hl.bind(
-            'K',
+            "K",
             resize({ x = 0, y = 10, relative = true }),
-            { repeating = true, description = "(Submap) Grow the active window's height." }
+            { repeating = true, description = "(Submap) Grow the active windows height." }
         )
 
         hl.bind(
-            'L',
+            "L",
             resize({ x = 10, y = 0, relative = true }),
-            { repeating = true, description = "(Submap) Grow the active window's width." }
+            { repeating = true, description = "(Submap) Grow the active windows width." }
         )
 
         hl.bind(
-            'catchall',
-            hl.dsp.submap('reset'),
+            "catchall",
+            hl.dsp.submap("reset"),
             { description = "Exit the resize submap." }
         )
     end
 )
 
 hl.bind(
-    mods.plain.opt .. ' + S',
-    hl.dsp.submap('swap'),
+    mods.plain.opt .. " + S",
+    hl.dsp.submap("swap"),
     { description = "Enter the swap submap." }
 )
 
 hl.define_submap(
-    'swap',
+    "swap",
     function()
         local swap = hl.dsp.window.swap
         hl.bind(
-            'H',
-            swap({ direction = 'l' }),
+            "H",
+            swap({ direction = "l" }),
             { repeating = true, description = "(Submap) Swap the active window with the one on its left." }
         )
 
         hl.bind(
-            'J',
-            swap({ direction = 'd' }),
+            "J",
+            swap({ direction = "d" }),
             { repeating = true, description = "(Submap) Swap the active window with the one below it." }
         )
 
         hl.bind(
-            'K',
-            swap({ direction = 'u' }),
+            "K",
+            swap({ direction = "u" }),
             { repeating = true, description = "(Submap) Swap the active window with the one above it." }
         )
 
         hl.bind(
-            'L',
-            swap({ direction = 'r' }),
+            "L",
+            swap({ direction = "r" }),
             { repeating = true, description = "(Submap) Swap the active window with the one on its right." }
         )
 
         hl.bind(
-            'catchall',
-            hl.dsp.submap('reset'),
+            "catchall",
+            hl.dsp.submap("reset"),
             { description = "Exit the swap submap." }
         )
     end
@@ -451,60 +451,60 @@ hl.define_submap(
 
 --- Noctalia dependent media, volume and brightness controls
 hl.bind(
-    'XF86AudioRaiseVolume',
+    "XF86AudioRaiseVolume",
     hl.dsp.exec_cmd(ipc .. "volume-up"),
     { description = "(Noctalia) Raise the volume." }
 )
 
 hl.bind(
-    'XF86AudioLowerVolume',
+    "XF86AudioLowerVolume",
     hl.dsp.exec_cmd(ipc .. "volume-down"),
     { description = "(Noctalia) Lower the volume." }
 )
 
 hl.bind(
-    'XF86AudioMute',
+    "XF86AudioMute",
     hl.dsp.exec_cmd(ipc .. "volume-mute"),
     { description = "(Noctalia) Toggle audio mute." }
 )
 
 hl.bind(
-    'XF86AudioMicMute',
+    "XF86AudioMicMute",
     hl.dsp.exec_cmd(ipc .. "mic-mute"),
     { description = "(Noctalia) Toggle microphone mute." }
 )
 
 hl.bind(
-    'XF86AudioPlay',
+    "XF86AudioPlay",
     hl.dsp.exec_cmd(ipc .. "media toggle"),
     { description = "(Noctalia) Toggle media playback." }
 )
 
 hl.bind(
-    'XF86AudioStop',
+    "XF86AudioStop",
     hl.dsp.exec_cmd(ipc .. "media stop"),
     { description = "(Noctalia) Stop media playback." }
 )
 
 hl.bind(
-    'XF86AudioNext',
+    "XF86AudioNext",
     hl.dsp.exec_cmd(ipc .. "media next"),
     { description = "(Noctalia) Skip to the next track." }
 )
 
-hl.bind('XF86AudioPrev',
+hl.bind("XF86AudioPrev",
     hl.dsp.exec_cmd(ipc .. "media previous"),
     { description = "(Noctalia) Return to the previous track." }
 )
 
 hl.bind(
-    'XF86MonBrightnessUp',
+    "XF86MonBrightnessUp",
     hl.dsp.exec_cmd(ipc .. "brightness-up"),
     { description = "(Noctalia) Raise screen brightness." }
 )
 
 hl.bind(
-    'XF86MonBrightnessDown',
+    "XF86MonBrightnessDown",
     hl.dsp.exec_cmd(ipc .. "brightness-down"),
     { description = "(Noctalia) Lower screen brightness." }
 )

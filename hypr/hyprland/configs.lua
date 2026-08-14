@@ -19,7 +19,7 @@ hl.config({
     },
 
     input = {
-        kb_layout          = 'it',
+        kb_layout          = "it",
         numlock_by_default = true
     },
 
@@ -31,7 +31,7 @@ hl.config({
     misc = {
         disable_hyprland_logo    = true,
         disable_splash_rendering = true,
-        font_family              = 'Lilex Nerd Font',
+        font_family              = "Lilex Nerd Font",
         enable_anr_dialog        = false
     },
 
@@ -45,6 +45,6 @@ hl.config({
 
     scrolling = {
         column_width = 1,
-        direction    = 'left'
+        direction    = "left"
     },
 })

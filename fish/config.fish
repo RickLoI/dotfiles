@@ -5,7 +5,7 @@ if status is-interactive
     keychain -q --eval $GITHUB_SSH_KEY | source
     clear
 
-    fish_config theme choose "rose-pine-moon"
+    fish_config theme choose "haligan-midnight"
 end
 
 # Global Variables

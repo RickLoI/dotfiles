@@ -31,14 +31,14 @@ order = [ "Main" ]
     concave_edge_corners = true
     contact_shadow = false
     enabled = true
-    end = [ "media", "todo_3", "widget_2", "theme_mode", "group:g1", "group:g3", "settings" ]
+    end = [ "media", "group:g1", "group:g3", "settings" ]
     font_weight = 700
     hover_highlight = true
     layer = "top"
     margin_edge = 0
     margin_ends = 50
     margin_opposite_edge = 0
-    padding = 14
+    padding = 15
     panel_overlap = 1
     position = "top"
     radius = 15
@@ -106,7 +106,7 @@ hidden_tabs = [
 ]
 shortcuts = []
 show_session_button = false
-show_shortcut_labels = true
+show_shortcut_labels = false
 sidebar = "none"
 sidebar_section = "none"
 width = 700
@@ -118,7 +118,7 @@ width = 700
     show_week_numbers = false
 
 [desktop_widgets]
-enabled = true
+enabled = false
 schema_version = 2
 
     [desktop_widgets.grid]
@@ -164,7 +164,7 @@ shadow = true
 show_dots = false
 show_instance_count = true
 show_running = true
-smart_auto_hide = false
+smart_auto_hide = true
 
 [hooks]
 battery_charging = []
@@ -207,7 +207,7 @@ enabled = false
     command = ""
 
 [idle]
-behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+behavior_order = [ "lock", "screen-off" ]
 pre_action_fade_seconds = 2.0
 
     [idle.behavior.lock]
@@ -216,13 +216,6 @@ pre_action_fade_seconds = 2.0
     enabled = true
     resume_command = ""
     timeout = 300.0
-
-    [idle.behavior.lock-and-suspend]
-    action = "lock_and_suspend"
-    command = ""
-    enabled = false
-    resume_command = ""
-    timeout = 900.0
 
     [idle.behavior.screen-off]
     action = "screen_off"
@@ -253,30 +246,30 @@ sunset = "19:30"
 
 [lockscreen]
 allow_empty_password = false
-blur_intensity = 0.5
+blur_intensity = 0.29999998211860657
 blurred_desktop = false
 enabled = true
 fingerprint = false
 lock_before_suspend = true
 monitors = []
-tint_intensity = 0.30000001192092896
+tint_intensity = 0.14999999105930328
 wallpaper = ""
 
 [lockscreen_widgets]
-enabled = false
+enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1" ]
+widget_order = [ "lockscreen-widget-0000000000000001", "lockscreen-widget-0000000000000002", "lockscreen-login-box@eDP-1" ]
 
     [lockscreen_widgets.grid]
-    cell_size = 16
+    cell_size = 8
     major_interval = 4
     visible = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-    box_height = 196.0
-    box_width = 810.0
-    cx = 640.0
-    cy = 538.0
+    box_height = 128.0
+    box_width = 800.0
+    cx = 944.0
+    cy = 988.0
     enabled = true
     output = "eDP-1"
     rotation = 0.0
@@ -288,21 +281,56 @@ widget_order = [ "lockscreen-login-box@eDP-1" ]
         background_radius = 12.0
         center_password_text = false
         input_opacity = 1.0
-        input_radius = 6.0
+        input_radius = 15.0
         layout = "regular"
         show_caps_lock = true
         show_keyboard_layout = true
         show_login_button = true
-        show_media = true
+        show_media = false
         show_session_buttons = true
-        show_unlock_hint = true
-        show_weather = true
+        show_unlock_hint = false
+        show_weather = false
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 96.0
+    box_width = 320.0
+    cx = 192.0
+    cy = 76.0
+    enabled = true
+    output = "eDP-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background = false
+        background_opacity = 0.0
+        background_padding = 0
+        background_radius = 0
+        clock_style = "digital"
+        format = "{:%I:%M %p}"
+        shadow = false
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 72.0
+    box_width = 192.0
+    cx = 192.0
+    cy = 160.0
+    enabled = true
+    output = "eDP-1"
+    rotation = 0.0
+    type = "weather"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background = false
+        background_opacity = 0.0
+        background_padding = 0
+        background_radius = 0
 
 [nightlight]
 enabled = false
-force = false
-temperature_day = 6500
-temperature_night = 4000
+force = true
+temperature_day = 6100
+temperature_night = 6000
 
 [notification]
 background_opacity = 0.97000002861022949
@@ -335,27 +363,34 @@ scale = 1.0
     [osd.kinds]
     bluetooth = true
     brightness = true
-    caffeine = true
+    caffeine = false
     dnd = true
-    keyboard_backlight = true
-    keyboard_layout = true
+    keyboard_backlight = false
+    keyboard_layout = false
     lock_keys = true
-    media = true
+    media = false
     nightlight = true
     power_profile = true
-    privacy = true
+    privacy = false
     volume = true
-    volume_input = true
-    volume_output = true
+    volume_input = false
+    volume_output = false
     wifi = true
 
+[plugin_settings."nightwatch75/todo"]
+panel_open_near_click = false
+panel_placement = "floating"
+panel_position = "center"
+
 [plugin_settings."thepunkoff/pomodoro"]
+panel_placement = "floating"
+panel_position = "center"
 sessions-before-long-break = 3
 work-duration = 45
 
 [plugins]
 auto_update = true
-enabled = [ "nightwatch75/todo", "thepunkoff/pomodoro" ]
+enabled = [ "nightwatch75/todo", "thepunkoff/pomodoro", "blackbartblues/keymap" ]
 
     [[plugins.source]]
     enabled = true
@@ -404,7 +439,7 @@ telemetry_enabled = false
 time_format = "{:%I:%M %p}"
 
     [shell.animation]
-    enabled = false
+    enabled = true
     speed = 1.0
 
     [shell.greeter_sync]
@@ -415,12 +450,12 @@ time_format = "{:%I:%M %p}"
     [shell.launcher]
     app_grid = false
     auto_paste = "auto"
-    categories = true
+    categories = false
     compact = false
     fetch_exchange_rates = true
     provider_prefix = "/"
     show_icons = true
-    sort_by_usage = true
+    sort_by_usage = false
 
         [shell.launcher.dmenu]
 
@@ -449,8 +484,8 @@ time_format = "{:%I:%M %p}"
     session_position = "auto"
     shadow = true
     transparency_mode = "solid"
-    wallpaper_placement = "attached"
-    wallpaper_position = "auto"
+    wallpaper_placement = "floating"
+    wallpaper_position = "center"
 
     [shell.privacy]
     cam_filter_regex = ""
@@ -463,7 +498,7 @@ time_format = "{:%I:%M %p}"
 
     [shell.screenshot]
     confirm_region = false
-    copy_to_clipboard = true
+    copy_to_clipboard = false
     directory = "/home/zetsubo/Pictures/Screenshots"
     filename_pattern = ""
     freeze_screen = true
@@ -520,16 +555,6 @@ time_format = "{:%I:%M %p}"
         shortcut = "1"
         variant = "default"
 
-        [[shell.session.actions]]
-        action = "lock_and_suspend"
-        command = ""
-        countdown_seconds = 0.0
-        enabled = false
-        glyph = ""
-        label = ""
-        shortcut = "3"
-        variant = "default"
-
     [shell.shadow]
     alpha = 0.55000001192092896
     direction = "down"
@@ -576,17 +601,17 @@ swap_pct_activity_threshold = 20.0
 swap_pct_critical_threshold = 80.0
 
 [theme]
-builtin = "Noctalia"
+builtin = "Ayu"
 community_palette = "Rose Pine Moon"
 custom_palette = "paper-airplane-v1-rb"
 mode = "dark"
 pure_black_dark = false
-source = "community"
-wallpaper_scheme = "m3-content"
+source = "wallpaper"
+wallpaper_scheme = "soft"
 
     [theme.templates]
     builtin_ids = [ "gtk3", "gtk4", "hyprland", "kitty", "qt" ]
-    community_ids = [ "spicetify", "zen-browser", "telegram", "gimp", "zathura", "hyprtoolkit", "papirus-icons", "bat", "yazi" ]
+    community_ids = [ "spicetify", "zen-browser", "gimp", "zathura", "hyprtoolkit", "papirus-icons", "bat", "yazi" ]
     enable_builtin_templates = true
     enable_community_templates = true
 
@@ -631,6 +656,7 @@ title_scroll = "none"
 type = "active_window"
 
 [widget.battery]
+hide_when_full = true
 hide_when_plugged = true
 show_label = false
 type = "battery"
@@ -638,6 +664,12 @@ type = "battery"
 [widget.bluetooth]
 hide_when_no_connected_device = true
 type = "bluetooth"
+
+[widget.brightness]
+type = "brightness"
+
+    [widget.brightness.actions]
+    left = "brightness-set 25%"
 
 [widget.clock]
 format = "{:%I:%M %p}"
@@ -694,6 +726,7 @@ device = "output"
 type = "volume"
 
 [widget.ram]
+label_show_units = false
 stat = "ram_used"
 type = "sysmon"
 
@@ -717,11 +750,17 @@ anchor = true
 glyph = "checkup-list"
 type = "nightwatch75/todo:todo"
 
-[widget.todo_3]
-type = "nightwatch75/todo:todo"
+[widget.volume]
+type = "volume"
+
+    [widget.volume.actions]
+    left = "volume-set 0.25"
 
 [widget.widget]
 type = "thepunkoff/pomodoro:widget"
 
-[widget.widget_2]
-type = "thepunkoff/pomodoro:widget"
+[widget.workspaces]
+label_source = "name"
+max_label_chars = 2
+style = "minimal"
+type = "workspaces"
