@@ -31,7 +31,7 @@
                 "blue": "#83ABE9",
                 "magenta": "#BA9ADD",
                 "cyan": "#7FBBD8",
-                "white": "EDEBED"
+                "white": "#EDEBED"
             },
             "bright": {
                 "black": "#24223A",
@@ -41,7 +41,7 @@
                 "blue": "#83ABE9",
                 "magenta": "#BA9ADD",
                 "cyan": "#7FBBD8",
-                "white": "EDEBED"
+                "white": "#EDEBED"
             }
         }
     },
@@ -77,7 +77,7 @@
                 "blue": "#4C70AC",
                 "magenta": "#8F70BC",
                 "cyan": "#2E96A2",
-                "white": "2A2523"
+                "white": "#2A2523"
             },
             "bright": {
                 "black": "#E4DEDB",
@@ -87,7 +87,7 @@
                 "blue": "#4C70AC",
                 "magenta": "#8F70BC",
                 "cyan": "#2E96A2",
-                "white": "2A2523"
+                "white": "#2A2523"
             }
         }
     }
