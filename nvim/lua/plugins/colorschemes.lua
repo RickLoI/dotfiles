@@ -11,12 +11,7 @@ return {
         'UtsuroNoArashi/haligan.nvim',
         name = 'haligan',
         config = function()
-            require('haligan').setup({
-                groups = {
-                    Normal = { fg = 'text', bg = 'NONE' },
-                    NormalNC = { fg = 'text', bg = 'NONE'}
-                }
-            })
+            require('haligan').setup()
             vim.cmd('colorscheme haligan')
         end
     }

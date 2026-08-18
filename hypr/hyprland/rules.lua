@@ -36,7 +36,7 @@ hl.window_rule({
 
 -- Printer, LocalSend and Thunar related
 hl.window_rule({
-    match = { class = "((.*)printer|(print|thunar)" },
+    match = { class = "((.*)printer)|(print|thunar)" },
     workspace = 3
 })
 

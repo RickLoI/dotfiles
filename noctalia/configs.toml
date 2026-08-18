@@ -213,14 +213,14 @@ pre_action_fade_seconds = 2.0
     [idle.behavior.lock]
     action = "lock"
     command = ""
-    enabled = true
+    enabled = false
     resume_command = ""
     timeout = 300.0
 
     [idle.behavior.screen-off]
     action = "screen_off"
     command = ""
-    enabled = true
+    enabled = false
     resume_command = ""
     timeout = 600.0
 
@@ -390,7 +390,7 @@ work-duration = 45
 
 [plugins]
 auto_update = true
-enabled = [ "nightwatch75/todo", "thepunkoff/pomodoro", "blackbartblues/keymap" ]
+enabled = [ "nightwatch75/todo", "thepunkoff/pomodoro", "blackbartblues/keymap", "decksters-lab/palette-creator" ]
 
     [[plugins.source]]
     enabled = true
@@ -603,11 +603,11 @@ swap_pct_critical_threshold = 80.0
 [theme]
 builtin = "Ayu"
 community_palette = "Rose Pine Moon"
-custom_palette = "paper-airplane-v1-rb"
-mode = "dark"
+custom_palette = "haligan"
+mode = "light"
 pure_black_dark = false
-source = "wallpaper"
-wallpaper_scheme = "soft"
+source = "custom"
+wallpaper_scheme = "faithful"
 
     [theme.templates]
     builtin_ids = [ "gtk3", "gtk4", "hyprland", "kitty", "qt" ]
@@ -615,10 +615,21 @@ wallpaper_scheme = "soft"
     enable_builtin_templates = true
     enable_community_templates = true
 
+        [theme.templates.user.palette_creator_live]
+        compare_to = ""
+        enabled = true
+        index = 0
+        input_path = "/home/zetsubo/.local/state/noctalia/plugins/materialized/community/palette-creator/templates/live-snapshot.tpl"
+        output_path = [ "/home/zetsubo/.local/state/noctalia/plugin-data/kyle-palette-creator/live-snapshot.json" ]
+        output_path_dynamic = ""
+        post_action = ""
+        post_hook = ""
+        pre_hook = ""
+
 [wallpaper]
 directory = ""
-directory_dark = ""
-directory_light = ""
+directory_dark = "/home/zetsubo/Pictures/Wallpapers/dark"
+directory_light = "/home/zetsubo/Pictures/Wallpapers/light"
 edge_smoothness = 0.30000001192092896
 enabled = true
 fill_color = ""
