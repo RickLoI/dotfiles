@@ -628,8 +628,8 @@ wallpaper_scheme = "faithful"
 
 [wallpaper]
 directory = ""
-directory_dark = "/home/zetsubo/Pictures/Wallpapers/dark"
-directory_light = "/home/zetsubo/Pictures/Wallpapers/light"
+directory_dark = "/home/zetsubo/Pictures/wallpapers/dark"
+directory_light = "/home/zetsubo/Pictures/wallpapers/light"
 edge_smoothness = 0.30000001192092896
 enabled = true
 fill_color = ""

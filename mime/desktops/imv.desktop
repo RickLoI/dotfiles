@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Imv
+Exec=imv-dir %f
+Type=Application
+Categories=Utility
+Comment=Opens images to their actual size.
+MimeType=image/bmp;image/gif;image/jpeg;image/png;image/tiff;

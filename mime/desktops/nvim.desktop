@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Neovim
+TryExec=nvim
+Exec=kitty nvim %f
+Terminal=false
+Type=Application
+Icon=nvim
+Categories=Utility;TextEditor;
+NoDisplay=true
+Comment=Open SRCs files in neovim within kitty
+MimeType=text/css;text/csv;text/csv-schema;text/html;text/htmlh;text/javascript;text/julia;text/markdown;text/plain;text/rust;text/x-adasrc;text/x-basic;text/x-bibtex;text/x-blueprint;text/x-c++hdr;text/x-c++src;text/x-changelog;text/x-chdr;text/x-cmake;text/x-cobol;text/x-common-lisp;text/x-credits;text/x-crystal;text/x-csharp;text/x-csrc;text/x-elixir;text/x-erlang;text/x-fortran;text/x-go;text/x-gradle;text/x-groovy;text/x-haskell;text/x-hex;text/x-java;text/x-kotlin;text/x-log;text/x-lua;text/x-makefile;text/x-matlab;text/x-maven+xml;text/x-objc++src;text/x-objcsrc;text/x-ocaml;text/x-opml+xml;text/x-python;text/x-python3;text/x-readme;text/x-scala;text/x-tex;text/x-typst;

@@ -25,13 +25,12 @@ init_package_install() {
         "bat"
         "brother-dcp-l2510d"
         "fish"
+        "gimp"
         "greetd"
         "gvfs"
         "gvfs-mtp"
         "hyprland"
         "hyprpolkitagent"
-        "hyprshot"
-        "hyprsunset"
         "imv"
         "keychain"
         "kitty"
@@ -100,12 +99,13 @@ init_symlinks() {
     echo "Symlinking dotfiles to config" | tee -a "$LOG"
     cd "$DOTS"
 
-    ln -sfn $DOTS/{fish,hypr,nvim,zathura} "$CONFS"
-    mkdir -p "$MIME" cp $DOTS/mime/desktop/* "$MIME"
+    ln -sfn $DOTS/{fish,hypr,kitty,nvim,zathura} "$CONFS"
+    mkdir -p "$MIME"
+    cp $DOTS/mime/desktops/* "$MIME"
     cp "$DOTS/mime/mimeapps.list" "$CONFS"
     ln -sfn "$DOTS/wallpapers" "$HOME/Pictures/"
 
-    cp "$DOTS/noctalia/"* "$CONFS/noctalia"
+    cp -r "$DOTS/noctalia/"* "$CONFS/noctalia"
 }
 
 update_greetd() {
