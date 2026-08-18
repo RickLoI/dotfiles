@@ -1,5 +1,5 @@
-fish/fish_variables
-hypr/noctalia.lua
+fish/fish_variable
+shypr/noctalia.lua
 zathura/noctaliarc
 kitty/themes/noctalia.conf
 nvim/lazy-lock.json
