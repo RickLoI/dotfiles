@@ -1,189 +1,51 @@
-# name: 'haligan'
-
 [light]
-# haligan (Noon) — remapped from theme.lua's hl-group assignments
-# Each fish_color_* is matched to the closest Neovim highlight group in
-# theme.lua, then resolved to that group's palette color in palette.lua (Noon).
-#
-# fish role          -> matched hl group          -> palette name    -> hex
-# normal              Normal.fg                     text              2A2523
-# command             Function.fg                    hibiscus          4C70AC
-# keyword             Keyword.fg                     lilac             8F70BC
-# quote               String.fg                      green_hellebore   3D9760
-# redirection         SpecialKey.fg (Special)         calibrachoa       B08A3A
-# end                 Delimiter.fg                    muted             BDB4BF
-# error               Error/ErrorMsg.fg                azalea            C24F68
-# param               @variable.parameter.fg           petal_dust        9C7E6E
-# comment             Comment.fg                       subtle            948A93
-# operator            Operator.fg                      subtle            948A93
-# escape              @string.escape -> Special.fg     calibrachoa       B08A3A
-# autosuggestion      NonText.fg                       muted             BDB4BF
-# cwd                 Directory.fg                     azalea            C24F68
-# user                Title.fg                         hibiscus          4C70AC
-# host                Label.fg                         gladiolus         C2794F
-# host_remote         DiagnosticWarn.fg                 calibrachoa       B08A3A
-# cancel              Normal.fg                        text              2A2523
-# search_match bg     base                             base              E4DEDB
-
-# syntax highlighting variables
-# https://fishshell.com/docs/current/interactive.html#syntax-highlighting-variables
 fish_color_normal 2A2523
 fish_color_command 4C70AC
 fish_color_keyword 8F70BC
-fish_color_quote 3D9760
-fish_color_redirection B08A3A
-fish_color_end BDB4BF
-fish_color_error C24F68
+fish_color_quote B08A3A
+fish_color_redirection 948A93
+fish_color_end 948A93
+fish_color_error C2794F
 fish_color_param 9C7E6E
+fish_color_option 2E96A2
 fish_color_comment 948A93
-# fish_color_match --background=brblue
-fish_color_selection --reverse
-# fish_color_history_current --bold
 fish_color_operator 948A93
-fish_color_escape B08A3A
+fish_color_escape C2794F
 fish_color_autosuggestion BDB4BF
-fish_color_cwd C24F68
-# fish_color_cwd_root red
-fish_color_user 4C70AC
-fish_color_host C2794F
-fish_color_host_remote B08A3A
-fish_color_cancel 2A2523
-fish_color_search_match --background=E4DEDB
-fish_color_valid_path
-
-# pager color variables
-# https://fishshell.com/docs/current/interactive.html#pager-color-variables
-# progress    -> DiagnosticOk/String (green_hellebore)
-# background  -> surface
-# prefix      -> Label.fg (gladiolus, matched-text highlight)
-# completion  -> Comment/subtle (regular candidate text)
-# description -> NonText/muted (secondary text)
-# selected_background -> overlay
-# selected_prefix     -> Label.fg (gladiolus)
-# selected_completion -> Normal/text (full-strength on selection)
-# selected_description -> Normal/text
-fish_pager_color_progress 3D9760
-fish_pager_color_background --background=D9D1CD
-fish_pager_color_prefix C2794F
-fish_pager_color_completion 948A93
-fish_pager_color_description BDB4BF
-fish_pager_color_secondary_background
-fish_pager_color_secondary_prefix
-fish_pager_color_secondary_completion
-fish_pager_color_secondary_description
+fish_color_cancel -r
+fish_color_search_match --background=CCC2BE
+fish_color_selection 2A2523 --bold --background=CCC2BE
+fish_color_match --background=B08A3A
+fish_color_valid_path --underline
+fish_color_history_current 4C70AC --bold
+fish_pager_color_prefix 2A2523 --bold
+fish_pager_color_completion 2A2523
+fish_pager_color_description 948A93
+fish_pager_color_progress 2A2523 --background=CCC2BE
 fish_pager_color_selected_background --background=CCC2BE
-fish_pager_color_selected_prefix C2794F
-fish_pager_color_selected_completion 2A2523
-fish_pager_color_selected_description 2A2523
-
-# haligan palette (Noon) — raw accessors matching palette.lua exactly
-fish_color_subtle 948A93
-fish_color_muted BDB4BF
-fish_color_text 2A2523
-fish_color_azalea C24F68
-fish_color_gladiolus C2794F
-fish_color_calibrachoa B08A3A
-fish_color_green_hellebore 3D9760
-fish_color_weather_glass 2E96A2
-fish_color_hibiscus 4C70AC
-fish_color_lilac 8F70BC
-fish_color_petal_dust 9C7E6E
-fish_color_base E4DEDB
-fish_color_surface D9D1CD
-fish_color_overlay CCC2BE
-fish_color_highlight_min D2C8C3
-fish_color_highlight_max B0A6B2
 
 [dark]
-# haligan (Midnight) — remapped from theme.lua's hl-group assignments
-# Each fish_color_* is matched to the closest Neovim highlight group in
-# theme.lua, then resolved to that group's palette color in palette.lua (Midnight).
-#
-# fish role          -> matched hl group          -> palette name    -> hex
-# normal              Normal.fg                     text              EDEBED
-# command             Function.fg                    hibiscus          83ABE9
-# keyword             Keyword.fg                     lilac             BA9ADD
-# quote               String.fg                      green_hellebore   78BA87
-# redirection         SpecialKey.fg (Special)         calibrachoa       DFB67C
-# end                 Delimiter.fg                    muted             404C5C
-# error               Error/ErrorMsg.fg                azalea            ED7F90
-# param               @variable.parameter.fg           petal_dust        ADA2A9
-# comment             Comment.fg                       subtle            6A63A0
-# operator            Operator.fg                      subtle            6A63A0
-# escape              @string.escape -> Special.fg     calibrachoa       DFB67C
-# autosuggestion      NonText.fg                       muted             404C5C
-# cwd                 Directory.fg                     azalea            ED7F90
-# user                Title.fg                         hibiscus          83ABE9
-# host                Label.fg                         gladiolus         E08F74
-# host_remote         DiagnosticWarn.fg                 calibrachoa       DFB67C
-# cancel              Normal.fg                        text              EDEBED
-# search_match bg     base                             base              1E1C30
-
-# syntax highlighting variables
-# https://fishshell.com/docs/current/interactive.html#syntax-highlighting-variables
 fish_color_normal EDEBED
 fish_color_command 83ABE9
 fish_color_keyword BA9ADD
-fish_color_quote 78BA87
-fish_color_redirection DFB67C
-fish_color_end 404C5C
+fish_color_quote DFB67C
+fish_color_redirection 6A63A0
+fish_color_end 6A63A0
 fish_color_error ED7F90
 fish_color_param ADA2A9
+fish_color_option 7FBBD8
 fish_color_comment 6A63A0
-# fish_color_match --background=brblue
-fish_color_selection --reverse
-# fish_color_history_current --bold
 fish_color_operator 6A63A0
-fish_color_escape DFB67C
+fish_color_escape ED7F90
 fish_color_autosuggestion 404C5C
-fish_color_cwd ED7F90
-# fish_color_cwd_root red
-fish_color_user 83ABE9
-fish_color_host E08F74
-fish_color_host_remote DFB67C
-fish_color_cancel EDEBED
-fish_color_search_match --background=1E1C30
-fish_color_valid_path
-
-# pager color variables
-# https://fishshell.com/docs/current/interactive.html#pager-color-variables
-# progress    -> DiagnosticOk/String (green_hellebore)
-# background  -> surface
-# prefix      -> Label.fg (gladiolus, matched-text highlight)
-# completion  -> Comment/subtle (regular candidate text)
-# description -> NonText/muted (secondary text)
-# selected_background -> overlay
-# selected_prefix     -> Label.fg (gladiolus)
-# selected_completion -> Normal/text (full-strength on selection)
-# selected_description -> Normal/text
-fish_pager_color_progress 78BA87
-fish_pager_color_background --background=24223A
-fish_pager_color_prefix E08F74
-fish_pager_color_completion 6A63A0
-fish_pager_color_description 404C5C
-fish_pager_color_secondary_background
-fish_pager_color_secondary_prefix
-fish_pager_color_secondary_completion
-fish_pager_color_secondary_description
+fish_color_cancel -r
+fish_color_search_match --background=2A2843
+fish_color_selection EDEBED --bold --background=2A2843
+fish_color_match --background=DFB67C
+fish_color_valid_path --underline
+fish_color_history_current 83ABE9 --bold
+fish_pager_color_prefix EDEBED --bold
+fish_pager_color_completion EDEBED
+fish_pager_color_description 6A63A0
+fish_pager_color_progress EDEBED --background=2A2843
 fish_pager_color_selected_background --background=2A2843
-fish_pager_color_selected_prefix E08F74
-fish_pager_color_selected_completion EDEBED
-fish_pager_color_selected_description EDEBED
-
-# haligan palette (Midnight) — raw accessors matching palette.lua exactly
-fish_color_subtle 6A63A0
-fish_color_muted 404C5C
-fish_color_text EDEBED
-fish_color_azalea ED7F90
-fish_color_gladiolus E08F74
-fish_color_calibrachoa DFB67C
-fish_color_green_hellebore 78BA87
-fish_color_weather_glass 7FBBD8
-fish_color_hibiscus 83ABE9
-fish_color_lilac BA9ADD
-fish_color_petal_dust ADA2A9
-fish_color_base 1E1C30
-fish_color_surface 24223A
-fish_color_overlay 2A2843
-fish_color_highlight_min 201E33
-fish_color_highlight_max 39355A
