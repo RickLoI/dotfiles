@@ -83,7 +83,7 @@ hl.bind(
 hl.bind(
     mods.plain.main .. " + P",
     hl.dsp.exec_cmd(ipc .. "panel-toggle thepunkoff/pomodoro:panel"),
-    { description = "(Noctalia) Toggle pomodoro timer." }
+    { description = "(Noctalia) Toggle pomodoro timer panel." }
 )
 
 hl.bind(
@@ -97,6 +97,13 @@ hl.bind(
     hl.dsp.exec_cmd(ipc .. "theme-mode-toggle"),
     { description = "(Noctalia) Toggle theme mode." }
 )
+
+hl.bind(
+    mods.plain.main .. " + S",
+    hl.dsp.exec_cmd(ipc .. "panel-toggle control-center system"),
+    { description = "(Noctalia) Toggle system monitor panel." }
+)
+
 
 --- Window control
 hl.bind(

@@ -31,7 +31,7 @@ order = [ "Main" ]
     concave_edge_corners = true
     contact_shadow = false
     enabled = true
-    end = [ "media", "group:g1", "group:g3", "settings" ]
+    end = [ "media", "group:g1", "group:g3" ]
     font_weight = 700
     hover_highlight = true
     layer = "top"
@@ -73,7 +73,7 @@ order = [ "Main" ]
         enabled = true
         fill = "surface_variant"
         id = "g3"
-        members = [ "network", "bluetooth" ]
+        members = [ "network", "bluetooth", "battery" ]
         opacity = 1.0
         padding = 5.0
 
@@ -385,12 +385,12 @@ panel_position = "center"
 [plugin_settings."thepunkoff/pomodoro"]
 panel_placement = "floating"
 panel_position = "center"
-sessions-before-long-break = 3
+sessions-before-long-break = 2
 work-duration = 45
 
 [plugins]
 auto_update = true
-enabled = [ "nightwatch75/todo", "thepunkoff/pomodoro", "blackbartblues/keymap", "decksters-lab/palette-creator" ]
+enabled = [ "nightwatch75/todo", "thepunkoff/pomodoro", "blackbartblues/keymap" ]
 
     [[plugins.source]]
     enabled = true
@@ -604,7 +604,7 @@ swap_pct_critical_threshold = 80.0
 builtin = "Ayu"
 community_palette = "Rose Pine Moon"
 custom_palette = "haligan"
-mode = "light"
+mode = "dark"
 pure_black_dark = false
 source = "custom"
 wallpaper_scheme = "faithful"
@@ -627,7 +627,7 @@ wallpaper_scheme = "faithful"
         pre_hook = ""
 
 [wallpaper]
-directory = ""
+directory = "/home/zetsubo/Pictures/wallpapers/dark"
 directory_dark = "/home/zetsubo/Pictures/wallpapers/dark"
 directory_light = "/home/zetsubo/Pictures/wallpapers/light"
 edge_smoothness = 0.30000001192092896
