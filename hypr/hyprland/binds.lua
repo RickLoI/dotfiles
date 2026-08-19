@@ -361,13 +361,67 @@ hl.bind(
 
 hl.bind(
     mods.plain.main .. " + TAB",
-    hl.dsp.focus({ workspace = "e+1" }),
+    function()
+        local active = hl.get_active_workspace()
+        local workspaces = hl.get_workspaces()
+
+        --- First check workspaces following the active one
+        for _, ws in ipairs(workspaces) do
+            if active and ws.id > active.id then
+                local wsCount = ws.windows
+                if wsCount >= 1 then
+                    hl.dispatch(hl.dsp.focus({ workspace = ws }))
+                    return
+                end
+            end
+        end
+
+        --- Then check workspaces preceeding the active one
+        for _, ws in ipairs(workspaces) do
+            if active and ws.id < active.id then
+                local wsCount = ws.windows
+                if wsCount >= 1 then
+                    hl.dispatch(hl.dsp.focus({ workspace = ws }))
+                    return
+                end
+            end
+        end
+    end,
     { repeating = true, description = "Switch focus to the next workspace." }
 )
 
 hl.bind(
     mods.strong.main .. " + TAB",
-    hl.dsp.focus({ workspace = "e-1" }),
+    function ()
+        local active = hl.get_active_workspace()
+        local workspaces = hl.get_workspaces()
+        table.sort(workspaces, function (ws1, ws2)
+            return ws1.id > ws2.id
+        end)
+
+        --- First check workspaces preceeding the active one
+        for _, ws in ipairs(workspaces) do
+            if active and ws.id < active.id then
+                local wsCount = ws.windows
+                if wsCount >= 1 then
+                    hl.dispatch(hl.dsp.focus({ workspace = ws }))
+                    return
+                end
+            end
+        end
+
+        --- Then check workspaces following the active one
+        for _, ws in ipairs(workspaces) do
+            if active and ws.id > active.id then
+                local wsCount = ws.windows
+                if wsCount >= 1 then
+                    hl.dispatch(hl.dsp.focus({ workspace = ws }))
+                    return
+                end
+            end
+        end
+
+    end,
     { repeating = true, description = "Switch focus to the previous workspace." }
 )
 
