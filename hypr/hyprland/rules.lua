@@ -26,14 +26,6 @@ hl.window_rule({
     workspace = 2
 })
 
-hl.window_rule({
-    match = {
-        class = "xdg-desktop-portal-gtk",
-        title = ".*Zen Browser"
-    },
-    workspace = 2,
-})
-
 -- Printer, LocalSend and Thunar related
 hl.window_rule({
     match = { class = "((.*)printer)|(print|thunar)" },
@@ -81,7 +73,7 @@ hl.window_rule({
 -- Others
 hl.window_rule({
     match = {
-        title = "Qalculate!|LocalSend",
+        class = "((.*)localsend_app)|(xdg-desktop-portal-gtk)|(qalculate(.*))",
     },
     workspace = "unset",
     float = true,
