@@ -155,7 +155,8 @@ hl.bind(
         end
 
         local blacklist = {
-            "LocalSend"
+            "LocalSend",
+            "Qualculate!"
         }
 
         for _, blacklisted in ipairs(blacklist) do

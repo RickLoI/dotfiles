@@ -35,7 +35,7 @@ function utils.focus_nonempty_ws(direction)
     if not active then return end
 
     local workspaces = hl.get_workspaces()
-    table.sort(workspaces, function (ws1, ws2)
+    table.sort(workspaces, function(ws1, ws2)
         return ws1.id < ws2.id
     end)
 
