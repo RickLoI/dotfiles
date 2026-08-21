@@ -35,7 +35,7 @@ hl.window_rule({
 hl.window_rule({
     match = {
         class = "thunar",
-        title = "(Rename(.*))"
+        title = "((Rename|Create)(.*))"
     },
     float = true,
     center = true,

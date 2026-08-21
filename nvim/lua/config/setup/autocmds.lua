@@ -123,3 +123,27 @@ autocmd('FileType', {
         vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
     end
 })
+
+--- Noctalia based theme update
+autocmd('Signal', {
+    pattern = "SIGUSR1",
+    callback = function()
+        local out = vim.system({ "noctalia", "msg", "theme-mode-get" }, { text = true }):wait()
+        local mode = vim.trim(out and out.stdout or "light")
+        local theme = mode == "light" and "haligan-noon" or "haligan-midnight"
+
+        vim.cmd("colorscheme " .. theme)
+        require("lualine").setup({})
+    end
+})
+
+autocmd('VimEnter', {
+    callback = function ()
+        local out = vim.system({ "noctalia", "msg", "theme-mode-get" }, { text = true }):wait()
+        local mode = vim.trim(out and out.stdout or "light")
+        local theme = mode == "light" and "haligan-noon" or "haligan-midnight"
+
+        vim.cmd("colorscheme " .. theme)
+        require("lualine").setup({})
+    end
+})

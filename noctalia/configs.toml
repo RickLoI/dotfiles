@@ -181,7 +181,7 @@ session_locked = []
 session_unlocked = []
 shutting_down = []
 started = []
-theme_mode_changed = []
+theme_mode_changed = [ "pkill -USR1 nvim" ]
 wallpaper_changed = []
 wifi_disabled = []
 wifi_enabled = []
@@ -240,9 +240,9 @@ validate = [ "Return", "KP_Enter", "space" ]
 [location]
 address = ""
 auto_locate = true
-custom_schedule = false
-sunrise = "07:30"
-sunset = "19:30"
+custom_schedule = true
+sunrise = "19:30"
+sunset = "07:30"
 
 [lockscreen]
 allow_empty_password = false
@@ -604,10 +604,10 @@ swap_pct_critical_threshold = 80.0
 builtin = "Ayu"
 community_palette = "Rose Pine Moon"
 custom_palette = "haligan"
-mode = "dark"
+mode = "light"
 pure_black_dark = false
 source = "custom"
-wallpaper_scheme = "faithful"
+wallpaper_scheme = "soft"
 
     [theme.templates]
     builtin_ids = [ "gtk3", "gtk4", "hyprland", "kitty", "qt" ]
