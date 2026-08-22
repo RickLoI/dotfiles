@@ -1,51 +1,51 @@
 [light]
-fish_color_normal 2A2523
-fish_color_command 4C70AC
-fish_color_keyword 8F70BC
-fish_color_quote B08A3A
-fish_color_redirection 948A93
-fish_color_end 948A93
-fish_color_error C2794F
-fish_color_param 9C7E6E
-fish_color_option 2E96A2
-fish_color_comment 948A93
-fish_color_operator 948A93
-fish_color_escape C2794F
-fish_color_autosuggestion BDB4BF
+fish_color_normal 171117
+fish_color_command 3D59AE
+fish_color_keyword 9F3891
+fish_color_quote 8E6929
+fish_color_redirection 756172
+fish_color_end 756172
+fish_color_error B9313D
+fish_color_param 756172
+fish_color_option 327785
+fish_color_comment 756172
+fish_color_operator 756172
+fish_color_escape B9313D
+fish_color_autosuggestion CABAC8
 fish_color_cancel -r
-fish_color_search_match --background=CCC2BE
-fish_color_selection 2A2523 --bold --background=CCC2BE
-fish_color_match --background=B08A3A
+fish_color_search_match --background=CABAC8
+fish_color_selection 171117 --bold --background=CABAC8
+fish_color_match --background=8E6929
 fish_color_valid_path --underline
-fish_color_history_current 4C70AC --bold
-fish_pager_color_prefix 2A2523 --bold
-fish_pager_color_completion 2A2523
-fish_pager_color_description 948A93
-fish_pager_color_progress 2A2523 --background=CCC2BE
-fish_pager_color_selected_background --background=CCC2BE
+fish_color_history_current 3D59AE --bold
+fish_pager_color_prefix 171117 --bold
+fish_pager_color_completion 171117
+fish_pager_color_description 756172
+fish_pager_color_progress 171117 --background=CABAC8
+fish_pager_color_selected_background --background=CABAC8
 
 [dark]
 fish_color_normal EDEBED
-fish_color_command 83ABE9
-fish_color_keyword BA9ADD
-fish_color_quote DFB67C
-fish_color_redirection 6A63A0
-fish_color_end 6A63A0
-fish_color_error ED7F90
-fish_color_param ADA2A9
-fish_color_option 7FBBD8
-fish_color_comment 6A63A0
-fish_color_operator 6A63A0
-fish_color_escape ED7F90
-fish_color_autosuggestion 404C5C
+fish_color_command 9DB7EB
+fish_color_keyword C4A8EB
+fish_color_quote EDCD96
+fish_color_redirection 7F7C9C
+fish_color_end 7F7C9C
+fish_color_error DE7F88
+fish_color_param 7F7C9C
+fish_color_option 82BCBE
+fish_color_comment 7F7C9C
+fish_color_operator 7F7C9C
+fish_color_escape DE7F88
+fish_color_autosuggestion 403D5C
 fish_color_cancel -r
-fish_color_search_match --background=2A2843
-fish_color_selection EDEBED --bold --background=2A2843
-fish_color_match --background=DFB67C
+fish_color_search_match --background=403D5C
+fish_color_selection EDEBED --bold --background=403D5C
+fish_color_match --background=EDCD96
 fish_color_valid_path --underline
-fish_color_history_current 83ABE9 --bold
+fish_color_history_current 9DB7EB --bold
 fish_pager_color_prefix EDEBED --bold
 fish_pager_color_completion EDEBED
-fish_pager_color_description 6A63A0
-fish_pager_color_progress EDEBED --background=2A2843
-fish_pager_color_selected_background --background=2A2843
+fish_pager_color_description 7F7C9C
+fish_pager_color_progress EDEBED --background=403D5C
+fish_pager_color_selected_background --background=403D5C

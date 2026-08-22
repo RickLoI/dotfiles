@@ -130,9 +130,8 @@ autocmd('Signal', {
     callback = function()
         local out = vim.system({ "noctalia", "msg", "theme-mode-get" }, { text = true }):wait()
         local mode = vim.trim(out and out.stdout or "light")
-        local theme = mode == "light" and "haligan-noon" or "haligan-midnight"
 
-        vim.cmd("colorscheme " .. theme)
+        vim.cmd("colorscheme haligan-" .. mode)
         require("lualine").setup({})
     end
 })
@@ -141,9 +140,8 @@ autocmd('VimEnter', {
     callback = function ()
         local out = vim.system({ "noctalia", "msg", "theme-mode-get" }, { text = true }):wait()
         local mode = vim.trim(out and out.stdout or "light")
-        local theme = mode == "light" and "haligan-noon" or "haligan-midnight"
 
-        vim.cmd("colorscheme " .. theme)
+        vim.cmd("colorscheme haligan-" .. mode)
         require("lualine").setup({})
     end
 })
