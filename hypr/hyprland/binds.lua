@@ -26,7 +26,7 @@ hl.bind(
 hl.bind(
     mods.plain.main .. " + W",
     function()
-        utils.exec_unique_by_class("class:zen", "zen-browser")
+        utils.exec_unique("class:zen", "zen-browser")
     end,
     { description = "Open or focus the web browser." }
 )
@@ -34,7 +34,7 @@ hl.bind(
 hl.bind(
     mods.plain.main .. " + F",
     function()
-        utils.exec_unique_by_class("class:thunar", "thunar")
+        utils.exec_unique("class:thunar", "thunar")
     end,
     { description = "Open or focus the file explorer." }
 )
@@ -42,7 +42,7 @@ hl.bind(
 hl.bind(
     mods.plain.main .. " + M",
     function()
-        utils.exec_unique_by_class("class:Spotify", "spotify")
+        utils.exec_unique("class:Spotify", "spotify")
     end,
     { description = "Open or focus the default music player." }
 )
@@ -56,7 +56,7 @@ hl.bind(
 hl.bind(
     mods.plain.main .. " + L",
     function()
-        utils.exec_unique_by_title("title:LocalSend", "localsend")
+        utils.exec_unique("title:LocalSend", "localsend")
     end,
     { description = "Open or focus localsend." }
 )

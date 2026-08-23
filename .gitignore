@@ -1,4 +1,5 @@
 fish/fish_variables
+fish/completions/*
 hypr/noctalia.lua
 hypr/hyprtoolkit.conf
 zathura/noctaliarc

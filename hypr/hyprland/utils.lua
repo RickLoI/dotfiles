@@ -1,35 +1,6 @@
 local utils = {}
 
----Checks if any window has `win_title`.
----If any are found it gets foucused, otherwise `cmd` is executed
----@param win_title string
----@param cmd string
-function utils.exec_unique_by_title(win_title, cmd)
-    local win_exists = hl.get_window(win_title)
-    if not win_exists then
-        hl.dispatch(hl.dsp.exec_cmd(cmd))
-        return
-    end
-    hl.dispatch(hl.dsp.focus({ window = win_title }))
-end
-
----Checks if any window has `win_class`.
----If any are found it gets foucused, otherwise `cmd` is executed
----@param win_class string
----@param cmd string
-function utils.exec_unique_by_class(win_class, cmd)
-    local win_exists = hl.get_window(win_class)
-    if not win_exists then
-        hl.dispatch(hl.dsp.exec_cmd(cmd))
-        return
-    end
-    hl.dispatch(hl.dsp.focus({ window = win_class }))
-end
-
----Tries to focus the next available non-empty workspace base on the given direction.
----direction = 1 => Forward
----direction = -1 => Backward
----@param direction integer
+---@param direction integer 
 function utils.focus_nonempty_ws(direction)
     local active = hl.get_active_workspace()
     if not active then return end
@@ -57,6 +28,18 @@ function utils.focus_nonempty_ws(direction)
             return
         end
     end
+end
+
+---@param class_or_title string -- The class or (exclusive) the title of a window.
+---@param cmd string -- Which command to excute if no window has `class_or_title.
+function utils.exec_unique(class_or_title, cmd)
+    local win = hl.get_window(class_or_title)
+    if not win then
+        hl.dispatch(hl.dsp.exec_cmd(cmd))
+        return
+    end
+
+    hl.dispatch(hl.dsp.focus({ window = win }))
 end
 
 return utils

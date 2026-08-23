@@ -6,13 +6,6 @@ hl.window_rule({
     workspace = 10
 })
 
-hl.window_rule({
-    name = "Resize floating",
-    match = { float = true },
-    center = true,
-    size = "(monitor_w*0.75) (monitor_h*0.75)"
-})
-
 --- Unnamed
 -- Kitty related
 hl.window_rule({
@@ -79,6 +72,15 @@ hl.window_rule({
     float = true,
     center = true,
     size = "(monitor_w*0.5) (monitor_h*0.5)"
+})
+
+hl.window_rule({
+    match = { 
+        float = true,
+        class = "negative:(((.*)localsend_app)|(gimp|xdg-desktop-portal-gtk)|(qalculate(.*)))"
+    },
+    center = true,
+    size = "(monitor_w*0.75) (monitor_h*0.75)"
 })
 
 --- Workspace

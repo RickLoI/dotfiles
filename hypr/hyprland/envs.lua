@@ -10,4 +10,3 @@ hl.env("GDK_SCALE", 1)
 hl.env("GTK_USE_PORTAL", 1)
 
 hl.env("QT_QPA_PLATFORM", "wayland")
-
