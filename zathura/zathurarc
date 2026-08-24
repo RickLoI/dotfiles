@@ -1,7 +1,7 @@
 # Main config file for zathura
 include "./noctaliarc"
-set recolor-lightcolor          "#E4DEDB"
-set recolor-darkcolor           "#2A2523"
+set recolor-lightcolor          "#E8E0E7"
+set recolor-darkcolor           "#171117"
 
 set font                        "Lilex Nerd Font Mono 12"
 set guioptions                  "hv"
