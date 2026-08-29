@@ -2,6 +2,6 @@ fish/fish_variables
 fish/completions/*
 hypr/noctalia.lua
 hypr/hyprtoolkit.conf
-zathura/noctaliarc
 kitty/themes/noctalia.conf
 nvim/lazy-lock.json
+zathura/noctaliarc
