@@ -8,7 +8,7 @@ return {
         name = 'tokyonight'
     },
     {
-        'UtsuroNoArashi/haligan.nvim',
+        url = "https://gitlab.com/haligan/haligan.nvim",
         name = 'haligan',
         config = function()
             require('haligan').setup()

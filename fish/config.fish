@@ -2,7 +2,8 @@ if status is-interactive
 
     # SSH session setup
     set -gx GITHUB_SSH_KEY "$HOME/.ssh/id_github"
-    keychain -q --eval $GITHUB_SSH_KEY | source
+    set -gx GITLAB_SSH_KEY "$HOME/.ssh/id_gitlab"
+    keychain -q --eval $GITHUB_SSH_KEY $GITLAB_SSH_KEY | source
     clear
 
     fish_config theme choose "haligan"
