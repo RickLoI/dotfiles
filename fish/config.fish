@@ -39,4 +39,3 @@ set -U fish_greeting
 
 # Aliases
 alias yayu "yay -Syu --needed --answerclean=N --answerdiff=N"
-alias yayr "yay -Rns (yay -Qdtq) || return && yay -Sc --noconfirm"

@@ -26,7 +26,7 @@ hl.bind(
 hl.bind(
     mods.plain.main .. " + W",
     function()
-        utils.exec_unique("class:zen", "zen-browser")
+        utils.exec_unique("class:brave-origin-nightly", "brave-origin-nightly")
     end,
     { description = "Open or focus the web browser." }
 )

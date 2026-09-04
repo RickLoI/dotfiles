@@ -4,7 +4,8 @@ function yayr
     yay -Sc --noconfirm
     
     set unused (yay -Qdtq)
-    if test $unused
+    echo $unused | xxd
+    if test [[ -n $unused  ]]
         yay -Rns $unused
         return
     else 
