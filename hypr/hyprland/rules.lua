@@ -15,7 +15,7 @@ hl.window_rule({
 
 -- Zen Browser related
 hl.window_rule({
-    match = { class = "brave-origin-nightly" },
+    match = { class = "zen" },
     workspace = 2
 })
 

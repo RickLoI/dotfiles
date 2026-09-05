@@ -67,7 +67,7 @@ required_pkgs=(
     "yazi"
     "zathura"
     "zathura-pdf-poppler"
-    "brave-origin-nightly"
+    "zen-browser-bin"
 )
 
 optional_pkgs=(

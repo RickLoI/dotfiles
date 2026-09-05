@@ -72,9 +72,6 @@ function fish_prompt
         set_color -o green
         echo -n ']'
 
-        # Date
-        _nim_prompt_wrapper $retc '' (date +%X)
-
         # Vi-mode
 
         if test "$fish_key_bindings" = fish_vi_key_bindings
