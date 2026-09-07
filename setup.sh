@@ -158,6 +158,9 @@ sudo firewall-cmd --add-port=53317/tcp --permanent
 sudo firewall-cmd --add-port=53317/udp --permanent
 sudo firewall-cmd --reload
 
+# Step 6. Updating shell and installing oh-my-fish
+echo "Installing oh-my-fish" | tee -a "$LOG_FILE"
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install
+
 chsh --shell $(which fish)
 echo "Please reboot to apply all change" | tee -a "$LOG_FILE"
-

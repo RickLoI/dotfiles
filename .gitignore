@@ -1,5 +1,6 @@
 fish/fish_variables
 fish/completions/*
+fish/conf.d
 hypr/noctalia.lua
 hypr/hyprtoolkit.conf
 kitty/themes/noctalia.conf
