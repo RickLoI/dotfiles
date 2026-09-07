@@ -35,7 +35,6 @@ set -gx SPARK_HOME /mnt/spark/
 set -gx PATH $SPARK_HOME/bin $SPARK_HOME/sbin $PATH
 
 # Fish specific
-set -U fish_greeting
 set -g theme_color_scheme terminal
 
 # Aliases
