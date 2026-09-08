@@ -1,3 +1,5 @@
+config_version = 14
+
 [accessibility]
 high_contrast = false
 ui_scale = 1.0
@@ -88,6 +90,8 @@ sync_all_monitors = false
 
 [calendar]
 enabled = false
+event_date_format = "%A %e %B"
+event_time_format = "%H:%M"
 refresh_minutes = 15
 
 [control_center]
@@ -112,8 +116,6 @@ sidebar_section = "none"
 width = 700
 
     [control_center.calendar]
-    event_date_format = "%A %e %B"
-    event_time_format = "%H:%M"
     show_events_card = false
     show_week_numbers = false
 
@@ -212,16 +214,12 @@ pre_action_fade_seconds = 2.0
 
     [idle.behavior.lock]
     action = "lock"
-    command = ""
-    enabled = false
-    resume_command = ""
+    enabled = true
     timeout = 300.0
 
     [idle.behavior.screen-off]
     action = "screen_off"
-    command = ""
-    enabled = false
-    resume_command = ""
+    enabled = true
     timeout = 600.0
 
 [keybinds]
@@ -270,8 +268,9 @@ widget_order = [ "lockscreen-widget-0000000000000001", "lockscreen-widget-000000
     box_width = 800.0
     cx = 944.0
     cy = 988.0
-    enabled = true
     output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "login_box"
 
@@ -296,8 +295,9 @@ widget_order = [ "lockscreen-widget-0000000000000001", "lockscreen-widget-000000
     box_width = 320.0
     cx = 192.0
     cy = 76.0
-    enabled = true
     output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "clock"
 
@@ -315,8 +315,9 @@ widget_order = [ "lockscreen-widget-0000000000000001", "lockscreen-widget-000000
     box_width = 192.0
     cx = 192.0
     cy = 160.0
-    enabled = true
     output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "weather"
 
@@ -389,7 +390,7 @@ sessions-before-long-break = 2
 work-duration = 45
 
 [plugins]
-auto_update = true
+auto_update = "all"
 enabled = [ "nightwatch75/todo", "thepunkoff/pomodoro", "blackbartblues/keymap" ]
 
     [[plugins.source]]
@@ -604,14 +605,13 @@ swap_pct_critical_threshold = 80.0
 builtin = "Ayu"
 community_palette = "Rose Pine Moon"
 custom_palette = "haligan"
-mode = "auto"
+mode = "dark"
 pure_black_dark = false
 source = "custom"
 wallpaper_scheme = "soft"
 
     [theme.templates]
     builtin_ids = [ "gtk3", "gtk4", "hyprland", "kitty", "qt" ]
-    community_ids = [ "spicetify", "zen-browser", "gimp", "zathura", "hyprtoolkit", "papirus-icons", "bat", "yazi" ]
     enable_builtin_templates = true
     enable_community_templates = true
 
@@ -645,6 +645,15 @@ transition_on_startup = false
     order = "random"
     recursive = true
 
+    [wallpaper.default]
+    path = "/home/zetsubo/Pictures/wallpapers/dark/Firewatch tower.png"
+
+    [wallpaper.last]
+    path = "/home/zetsubo/Pictures/wallpapers/dark/Firewatch tower.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/zetsubo/Pictures/wallpapers/dark/Firewatch tower.png"
+
 [weather]
 effects = true
 enabled = true
@@ -673,7 +682,7 @@ show_label = false
 type = "battery"
 
 [widget.bluetooth]
-hide_when_no_connected_device = true
+hide_when_no_connected_device = false
 type = "bluetooth"
 
 [widget.brightness]
