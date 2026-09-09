@@ -42,27 +42,4 @@ function utils.exec_unique(class_or_title, cmd)
     hl.dispatch(hl.dsp.focus({ window = win }))
 end
 
-function utils.handle_kitty()
-    local win = hl.get_active_window()
-    if not win or win.class ~= "kitty" then
-        return
-    end
-
-    local handler = io.popen("noctalia msg wallpaper-get")
-    if not handler then
-        return
-    end
-
-    local wallpaper = handler:read("*l")
-    handler:close()
-
-    local kitten = string.format(
-        "kitten @ --to unix:/tmp/kitty-%d set-background-image \'%s\'",
-        win.pid,
-        win.fullscreen == 2 and wallpaper or "none"
-    )
-
-    hl.dispatch(hl.dsp.exec_cmd(kitten))
-end
-
 return utils

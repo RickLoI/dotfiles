@@ -13,5 +13,4 @@ end)
 
 hl.on("window.fullscreen", function()
     hl.dsp.exec_cmd("noctalia msg bar-toggle")
-    require("hyprland.utils").handle_kitty()
 end)
