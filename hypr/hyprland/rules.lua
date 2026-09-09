@@ -6,6 +6,12 @@ hl.window_rule({
     workspace = 10
 })
 
+-- hl.window_rule({
+--     name = "Resize floating",
+--     match = { float = ".*" },
+--     size = "(monitor_w*0.5) (monitor_h*0.5)"
+-- })
+
 --- Unnamed
 -- Kitty related
 hl.window_rule({
@@ -28,12 +34,13 @@ hl.window_rule({
 hl.window_rule({
     match = {
         class = "thunar",
-        title = "((Rename|Create)(.*))"
+        title = "(Rename|Create)(.*)"
     },
     float = true,
     center = true,
     size = "(monitor_w*0.2) (monitor_h*0.1)"
 })
+
 
 -- Zathura, IMV, MPV and Spotify related
 hl.window_rule({
@@ -55,14 +62,14 @@ hl.window_rule({
 
 hl.window_rule({
     match = {
-        class = "gimp|(file(.*))",
-        title = "negative:(GIMP Startup|Welcome(.*))",
-        float = true
+        class = "gimp",
+        float = true,
+        title = "GIMP Startup"
     },
     center = true,
-    size = "(monitor_w*0.5) (monitor_h*0.5)"
+    size = "unset unset"
 })
-
+--
 -- Others
 hl.window_rule({
     match = {
@@ -72,15 +79,6 @@ hl.window_rule({
     float = true,
     center = true,
     size = "(monitor_w*0.5) (monitor_h*0.5)"
-})
-
-hl.window_rule({
-    match = { 
-        float = true,
-        class = "negative:(((.*)localsend_app)|(gimp|xdg-desktop-portal-gtk)|(qalculate(.*)))"
-    },
-    center = true,
-    size = "(monitor_w*0.75) (monitor_h*0.75)"
 })
 
 --- Workspace
