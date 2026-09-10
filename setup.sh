@@ -160,7 +160,8 @@ sudo firewall-cmd --reload
 
 # Step 6. Updating shell and installing oh-my-fish
 echo "Installing oh-my-fish" | tee -a "$LOG_FILE"
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+omf install bobthefish
 
 chsh --shell $(which fish)
 echo "Please reboot to apply all change" | tee -a "$LOG_FILE"
