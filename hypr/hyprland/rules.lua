@@ -6,11 +6,12 @@ hl.window_rule({
     workspace = 10
 })
 
--- hl.window_rule({
---     name = "Resize floating",
---     match = { float = ".*" },
---     size = "(monitor_w*0.5) (monitor_h*0.5)"
--- })
+hl.window_rule({
+    name = "Resize floating",
+    match = { float = true },
+    size = "(monitor_w*0.5) (monitor_h*0.5)",
+    center = true
+})
 
 --- Unnamed
 -- Kitty related
@@ -52,6 +53,16 @@ hl.window_rule({
 hl.window_rule({
     match = { class = "steam" },
     workspace = 5,
+})
+
+hl.window_rule({
+    match = {
+        class = "steam",
+        title = "Friends(.*)"
+    },
+    float = true,
+    center = true,
+    size = "(monitor_w*0.5) (monitor_h*0.5)"
 })
 
 -- Gimp related
