@@ -1,7 +1,17 @@
 hl.gesture({
     fingers = 3,
-    direction = "horizontal",
-    action = "workspace"
+    direction = "right",
+    action = function ()
+        require("hyprland.utils").focus_nonempty_ws(1)
+    end
+})
+
+hl.gesture({
+    fingers = 3,
+    direction = "left",
+    action = function ()
+        require("hyprland.utils").focus_nonempty_ws(-1)
+    end
 })
 
 hl.gesture({
