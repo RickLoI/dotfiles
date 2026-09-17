@@ -100,6 +100,7 @@ autocmd('LspRequest', {
     callback = function(args)
         local buf = args.buf
         local request = args.data.request
+        local file = vim.fn.fnamemodify(args.file, ':p:r')
 
         if not request or request.method ~= 'textDocument/build' then
             return
@@ -109,6 +110,8 @@ autocmd('LspRequest', {
             vim.api.nvim_buf_call(buf, function()
                 vim.cmd('LspTexlabCleanAuxiliary')
             end)
+
+            vim.fn.delete(file .. '.synctex.gz')
         end
     end
 })
