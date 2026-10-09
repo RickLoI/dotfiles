@@ -76,7 +76,7 @@ hl.bind(
 
 hl.bind(
     mods.plain.main .. " + T",
-    hl.dsp.exec_cmd(ipc .. "panel-toggle nightwatch75/todo:panel"),
+    hl.dsp.exec_cmd(ipc .. "panel-toggle baizhu/paged-todo:panel"),
     { description = "(Noctalia) Toggle To Do list." }
 )
 
