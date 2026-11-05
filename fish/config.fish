@@ -23,7 +23,7 @@ set -gx PATH $TEX_HOME $PATH
 set -gx TEXMFHOME "$HOME/.texmf"
 
 ## JAVA
-set -gx JAVA_HOME /usr/lib/jvm/*/bin/
+set -gx JAVA_HOME /usr/lib/jvm/java-*-openjdk/
 set -gx PATH $JAVA_HOME $PATH
 
 ## QML 

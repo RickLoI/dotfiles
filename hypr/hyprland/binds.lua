@@ -173,17 +173,20 @@ hl.bind(
 hl.bind(
     mods.plain.sub .. " + L",
     function()
-        local layout = hl.get_config("general.layout")
-        if layout ~= "dwindle" then
-            hl.config({
-                general = { layout = "dwindle" }
-            })
-            return
-        end
+        local active_layout = hl.get_config("general.layout")
+        active_layout = active_layout == "dwindle" and "scrolling" or "dwindle"
 
         hl.config({
-            general = { layout = "scrolling" }
+            general = {
+                layout = active_layout
+            }
         })
+
+        hl.notification.create({ 
+            text = "Active layout: " .. (active_layout or ""),
+            timeout = 2500
+        })
+
     end,
     { description = "Change active layout between dwindle and scrolling." }
 )

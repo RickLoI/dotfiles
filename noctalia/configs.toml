@@ -3,8 +3,12 @@ high_contrast = false
 ui_scale = 1.0
 
 [audio]
+enable_notification_sounds = true
 enable_overdrive = false
+enable_power_sounds = true
+enable_screenshot_sounds = true
 enable_sounds = false
+enable_volume_sounds = true
 sound_theme = "freedesktop"
 sound_volume = 0.5
 
@@ -18,6 +22,7 @@ order = [ "Main" ]
 
     [bar.Main]
     auto_hide = false
+    auto_hide_delay_ms = 0
     background_opacity = 1.0
     border = "outline"
     border_width = 0.0
@@ -52,6 +57,7 @@ order = [ "Main" ]
     scale = 1.0
     shadow = true
     show_on_workspace_switch = false
+    show_tooltip = true
     smart_auto_hide = false
     start = [ "session", "Spacer-1", "workspaces" ]
     thickness = 35
@@ -91,6 +97,8 @@ minimum_brightness = 0.0
 sync_all_monitors = false
 
 [calendar]
+dedupe_events = false
+dedupe_ignore_patterns = []
 enabled = false
 event_date_format = "%A %e %B"
 event_time_format = "%H:%M"
@@ -161,7 +169,6 @@ magnification_scale = 1.4500000476837158
 main_axis_padding = 16
 margin_edge = 0
 margin_ends = 0
-monitors = []
 pinned = []
 position = "bottom"
 radius = 16
@@ -263,6 +270,7 @@ blurred_desktop = false
 edge_smoothness = 0.30000001192092896
 enabled = true
 fingerprint = false
+grace_period_seconds = 0
 lock_before_suspend = true
 monitors = []
 tint_intensity = 0.14999999105930328
@@ -283,7 +291,7 @@ widget_order = [ "lockscreen-widget-0000000000000001", "lockscreen-widget-000000
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 128.0
     box_width = 800.0
-    cx = 944.00006103515625
+    cx = 944.0
     cy = 988.0
     enabled = true
     output = "eDP-1"
@@ -407,35 +415,15 @@ scale = 1.0
     volume_output = false
     wifi = true
 
-[plugin_settings."baizhu/paged-todo"]
-export_format = "json"
-export_path = "/home/zetsubo/Documents/Todo"
-panel_placement = "floating"
-panel_position = "center"
-priority_high_color = "error"
-priority_low_color = "primary"
-priority_medium_color = "secondary"
-show_completed = false
-use_custom_colors = true
-
-[plugin_settings."nightwatch75/todo"]
-panel_open_near_click = false
-panel_placement = "floating"
-panel_position = "center"
-
 [plugin_settings."thepunkoff/pomodoro"]
-auto-start-breaks = true
-auto-start-work = true
-long-break-duration = 25
 panel_placement = "floating"
 panel_position = "center"
 sessions-before-long-break = 2
-short-break-duration = 10
 work-duration = 45
 
 [plugins]
 auto_update = "all"
-enabled = [ "thepunkoff/pomodoro", "blackbartblues/keymap", "baizhu/paged-todo" ]
+enabled = [ "nightwatch75/todo", "thepunkoff/pomodoro", "blackbartblues/keymap" ]
 
     [[plugins.source]]
     enabled = true
@@ -450,8 +438,8 @@ enabled = [ "thepunkoff/pomodoro", "blackbartblues/keymap", "baizhu/paged-todo" 
     name = "community"
 
 [shell]
-app_icon_color = "tertiary"
-app_icon_colorize = false
+app_icon_color = "secondary"
+app_icon_colorize = true
 avatar_path = ""
 button_borders = true
 card_borders = true
@@ -482,6 +470,7 @@ settings_show_advanced = true
 settings_window_translucent = false
 setup_wizard_enabled = true
 shared_gl_context = true
+show_close_buttons = true
 show_location = true
 telemetry_enabled = false
 time_format = "{:%I:%M %p}"
@@ -500,14 +489,22 @@ umbriel_overview_type_to_launch_enabled = false
     app_grid = false
     auto_paste = "auto"
     categories = false
+    category_icons_only = false
     compact = false
+    default_view = "recent"
     fetch_exchange_rates = true
+    layout = "simple"
     pinned = []
     provider_prefix = "/"
+    search_position = "bottom"
     show_app_actions = false
     show_app_origin_indicator = true
     show_icons = true
+    show_session_button = true
+    show_settings_button = true
     sort_by_usage = false
+    track_usage = true
+    width = 760
 
         [shell.launcher.dmenu]
 
@@ -518,6 +515,8 @@ umbriel_overview_type_to_launch_enabled = false
     blacklist = []
 
     [shell.panel]
+    border_color = "outline"
+    border_width = 1.0
     borders = true
     clipboard_placement = "floating"
     clipboard_position = "center"
@@ -541,6 +540,7 @@ umbriel_overview_type_to_launch_enabled = false
     transparency_mode = "solid"
     wallpaper_placement = "floating"
     wallpaper_position = "center"
+    wallpaper_show_names = true
 
     [shell.privacy]
     cam_filter_regex = ""
@@ -562,6 +562,7 @@ umbriel_overview_type_to_launch_enabled = false
     freeze_screen = true
     pipe_command = ""
     pipe_to_command = false
+    region_modifier = "none"
     remember_last_region = false
     save_to_file = true
     show_cursor = false
@@ -676,11 +677,12 @@ mode = "dark"
 pure_black_dark = false
 shell_mode = "follow"
 source = "custom"
-wallpaper_scheme = "faithful"
+sync_color_scheme = true
+wallpaper_scheme = "soft"
 
     [theme.templates]
     builtin_ids = [ "gtk3", "gtk4", "hyprland", "kitty", "qt" ]
-    community_ids = [ "zen-browser", "gimp", "zathura", "hyprtoolkit", "fzf" ]
+    community_ids = [ "zen-browser", "gimp", "libreoffice", "zathura", "hyprtoolkit", "bat", "fzf", "yazi" ]
     enable_builtin_templates = true
     enable_community_templates = true
 
@@ -822,14 +824,6 @@ type = "spacer"
 [widget.temp]
 stat = "cpu_temp"
 type = "sysmon"
-
-[widget.todo]
-type = "nightwatch75/todo:todo"
-
-[widget.todo_2]
-anchor = true
-glyph = "checkup-list"
-type = "nightwatch75/todo:todo"
 
 [widget.volume]
 type = "volume"
